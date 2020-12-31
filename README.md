@@ -1,8 +1,6 @@
 # 💫 Today I learned 💫
 
-### Collection of notes and stuff I learn from day to day to become a full stack developer 👩🏻‍💻
-
----
+## Collection of notes and stuff I learn from day to day to become a full stack developer 👩🏻‍💻
 
 > ## 2021's Resolution 💡
 
@@ -25,6 +23,7 @@
 
 > Backend ⚙️
 
+- [ ] Node.js
 - [ ] Flask
 - [ ] SQL (PostgreSQL)
 - [ ] Web Security
