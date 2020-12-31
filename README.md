@@ -12,8 +12,6 @@
 
 > ## Study goals
 
----
-
 > Frontend
 
 - [ ] HTML semantic tags
@@ -23,23 +21,23 @@
 
 > Backend
 
-- Flask
-- SQL (PostgreSQL)
-- Web Security
-- Authentification (JWT,Oauth)
-- Cloud systems
-- Log management (Kafka, Spring Boot)
+- [ ] Flask
+- [ ] SQL (PostgreSQL)
+- [ ] Web Security
+- [ ] Authentification (JWT,Oauth)
+- [ ] Cloud systems
+- [ ] Log management (Kafka, Spring Boot)
 
 > CS Fundametals
 
-- Data structure
+- [ ] Data structure
 - Algoritms
 
 > Rust
 
-- Rust + WebGL
+- [ ] Rust + WebGL
 
 > Testing
 
-- Jest
-- Mocha
+- [ ] Jest
+- [ ] Mocha
