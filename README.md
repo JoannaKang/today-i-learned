@@ -1,8 +1,10 @@
-# 💫 Today I learned 💫
+# 💫 Today I learned
 
-## Collection of notes and stuff I learn from day to day to become a full stack developer 👩🏻‍💻
+### Collection of notes and stuffs I learn from day to day to become a full stack developer 👩🏻‍💻
 
-> ## 2021's Resolution 💡
+---
+
+## 💡 2021's Resolution
 
 ```
 - Expanding backend knowledge
@@ -12,16 +14,19 @@
 - Get used to TDD methods
 ```
 
+---
+
 > ## Study goals 📝
 
-> Frontend 🖥
+> ### Frontend 🖥
 
 - [ ] HTML semantic tags
 - [ ] CSS Media query
 - [ ] CSS Flexbox
 - [ ] Bootstrap & Material UI
+- [ ] D3 for interactive charts
 
-> Backend ⚙️
+> ### Backend ⚙️
 
 - [ ] Node.js
 - [ ] Flask
@@ -31,16 +36,16 @@
 - [ ] Cloud systems
 - [ ] Log management (Kafka, Spring Boot)
 
-> CS Fundametals 🤖
+> ### CS Fundametals 🤖
 
 - [ ] Data structure
 - [ ] Algoritms
 
-> Rust 🦀
+> ### Rust 🦀
 
 - [ ] Rust + WebGL
 
-> Testing ✅
+> ### Testing ✅
 
 - [ ] Jest
 - [ ] Mocha
