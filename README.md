@@ -15,14 +15,14 @@
 
 > ## Study goals 📝
 
-> Frontend 🖥
+> ### Frontend 🖥
 
 - [ ] HTML semantic tags
 - [ ] CSS Media query
 - [ ] CSS Flexbox
 - [ ] Bootstrap & Material UI
 
-> Backend ⚙️
+> ### Backend ⚙️
 
 - [ ] Flask
 - [ ] SQL (PostgreSQL)
@@ -31,16 +31,16 @@
 - [ ] Cloud systems
 - [ ] Log management (Kafka, Spring Boot)
 
-> CS Fundametals 🤖
+> ### CS Fundametals 🤖
 
 - [ ] Data structure
 - [ ] Algoritms
 
-> Rust 🦀
+> ### Rust 🦀
 
 - [ ] Rust + WebGL
 
-> Testing ✅
+> ### Testing ✅
 
 - [ ] Jest
 - [ ] Mocha
