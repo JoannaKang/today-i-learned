@@ -7,10 +7,10 @@
 > ## 2021's Resolution 💡
 
 ```
-- Learning low level language
 - Study data structures & algorithms
 - Expanding backend knowledge
 - Sharpening frontend skills for responsive design
+- Learning low level language
 - Get used to TDD methods
 ```
 
