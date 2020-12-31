@@ -22,6 +22,7 @@
 - [ ] CSS Media query
 - [ ] CSS Flexbox
 - [ ] Bootstrap & Material UI
+- [ ] D3 for interactive charts
 
 > ### Backend ⚙️
 
