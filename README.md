@@ -31,7 +31,7 @@
 > CS Fundametals
 
 - [ ] Data structure
-- Algoritms
+- [ ] Algoritms
 
 > Rust
 
