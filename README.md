@@ -1,6 +1,6 @@
 # 💫 Today I learned 💫
 
-### Collection of notes and stuff I learn from day to day to become a full stack developer 👩🏻‍💻
+### Collection of notes and stuffs I learn from day to day to become a full stack developer 👩🏻‍💻
 
 ---
 
