@@ -49,3 +49,7 @@
 
 - [ ] Jest
 - [ ] Mocha
+
+> ### Debugging cheat sheet 🐛
+
+- Most frequent bugs
