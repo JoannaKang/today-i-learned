@@ -52,4 +52,4 @@
 
 > ### Debugging cheat sheet 🐛
 
-- Most frequent bugs
+- [Most frequent bugs](https://github.com/JoannaKang/today-i-learned/tree/main/DebuggingSheets)
