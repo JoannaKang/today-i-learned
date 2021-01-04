@@ -43,7 +43,7 @@
 > ### Data Analysis 📊
 
 - [ ] D3 for interactive charts
-- [ ] Danfo.js
+- [ ] [Danfo.js](https://github.com/JoannaKang/today-i-learned/tree/main/Danfo.js)
 
 > ### Rust 🦀
 
