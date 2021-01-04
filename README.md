@@ -24,7 +24,6 @@
 - [ ] CSS Media query
 - [ ] CSS Flexbox
 - [ ] Bootstrap & Material UI
-- [ ] D3 for interactive charts
 
 > ### Backend ⚙️
 
@@ -40,6 +39,11 @@
 
 - [ ] Data structure
 - [ ] Algoritms
+
+> ### Data Analysis 📊
+
+- [ ] D3 for interactive charts
+- [ ] Danfo.js
 
 > ### Rust 🦀
 
