@@ -23,6 +23,7 @@
 - [ ] HTML semantic tags
 - [ ] CSS Media query
 - [ ] CSS Flexbox
+- [ ] Vue
 - [ ] Bootstrap & Material UI
 
 > ### Backend ⚙️
