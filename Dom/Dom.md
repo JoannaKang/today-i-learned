@@ -1,3 +1,7 @@
+# DOM(Document Object Model)
+
+- Cross-platform and language-independent interface that treats an XML or HTML document as a tree structure wherein each node is an object representing a part of the document.
+
 # Event Flow
 
 > What's differences between currentTarget vs target?
