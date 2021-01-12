@@ -1,3 +1,5 @@
+https://github.com/sudheerj/javascript-interview-questions
+
 # What are Javascript Data types?
 
 Number, String, Boolean, Object, Undefined
@@ -142,3 +144,4 @@ higherOrder (firstOrderFunc);
 # What are closures
 
 - A closure is the combination of a function and the lexical environment within which that function was declared.
+- makes it possible for a function to have "private" variables.
