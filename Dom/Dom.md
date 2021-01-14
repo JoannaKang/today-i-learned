@@ -1,6 +1,8 @@
 # DOM(Document Object Model)
 
 - Cross-platform and language-independent interface that treats an XML or HTML document as a tree structure wherein each node is an object representing a part of the document.
+- The Document Object Model (DOM) is a programming interface for HTML and XML documents.
+- It represents the page so that programs can change the document structure, style, and content.
 
 # Event Flow
 

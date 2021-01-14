@@ -218,6 +218,11 @@ higherOrder (firstOrderFunc);
 # What is promise chaining
 
 - The process of executing a sequence of asynchronous tasks one after another using promises
+- Promise(()=>{}).then(()=>{}).catch(()=>{}).finally(()=>{})
+
+# What is async function
+
+- function declared with the async keyword which enables asynchronous, promise-based behavior to be written in a cleaner style by avoiding promise chains.
 
 # What is callback function
 
@@ -336,11 +341,6 @@ window.mobilecheck = function() {
 
 - Node.js is an open-source, Javascript runtime environment on Chrome’s V8 that lets you run Javascript outside of browser
 
-# What is an event loop
-
-- The Event Loop is a queue of callback functions.
-- When an async function executes, the callback function is pushed into the queue.
-
 # What is call stack
 
 - Call Stack is a data structure for javascript interpreters to keep track of function calls in the program
@@ -349,6 +349,75 @@ window.mobilecheck = function() {
 2. Whenever the execution is completed, the function is popped out of the stack.
    https://github.com/sudheerj/javascript-interview-questions#What-is-call-stack
 
+# What is an event loop
+
+- The Event Loop is a queue of callback functions.
+- When an async function executes, the callback function is pushed into the queue.
+
+# type coersion
+
+- Javascript is dynamic typing language,
+- Process of converting values from one type to another
+- Implicit type coercion: data type can be converted between different types automatically
+
+1. String conversion
+
+```
+String(123) //explicit
+123 + '' //implicit
+```
+
+2. Numeric conversion
+
+```
+Number('123') //explicit
++'123' //implicit
+```
+
+```
+true + false             // 1
+12 / "6"                 // 2
+"number" + 15 + 3        // 'number153'
+15 + 3 + "number"        // '18number'
+[1] > null               // true
+"foo" + + "bar"          // 'fooNaN'
+'true' == true           // false
+false == 'false'         // false
+null == ''               // false
+!!"false" == !!"true"    // true
+['x'] == 'x'             // true
+[] + null + 1            // 'null1'
+[1,2,3] == [1,2,3]       // false
+{}+[]+{}+[1]             // '0[object Object]1'
+!+[]+[]+![]              // 'truefalse'
+new Date(0) - 0          // 0
+new Date(0) + 0          // 'Thu Jan 01 1970 02:00:00(EET)0'
+```
+
+# How to find HTML element in DOM
+
+- document.getElementById(id): It finds an element by Id
+- document.getElementsByTagName(name): It finds an element by tag name
+- document.getElementsByClassName(name): It finds an element by class name
+
+# What is MVC
+
+# CSS positioning
+
+- Static: They will go next to each other or under each other if no space
+- Relative:
+- Absolute: Taken out of the flow / dom and just foat in top left corner
+- fixed: will go wherever you tell it to go but not effected by scroll
+
+# CSS Display
+
+- Block: takes all space on his horizontal
+- Inline: Allows elements to stack
+
+# EM vs REM
+
+# z-index
+
 # Http request
 
-# What is REST Api
+# What is REST Api entail
