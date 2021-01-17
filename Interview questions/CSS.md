@@ -11,9 +11,34 @@
 
 # What's the difference between the "nth-of-type()" and "nth-child()" selectors?
 
+- nth-of-type : Specify a background color for every <p> element that is the second p element of its parent:
+
+```
+p:nth-of-type(2) {
+  background: red;
+}
+```
+
+- The :nth-child() CSS pseudo-class matches elements based on their position in a group of siblings.
+
+```
+/* Selects the second <li> element in a list */
+li:nth-child(2) {
+  color: lime;
+}
+```
+
 # What's the difference between a relative, fixed, absolute and statically positioned element?
 
+- Static: this is the default value, all elements are in order as they appear in the document.
+- Relative: the element is positioned relative to its normal position.
+- Absolute: the element is positioned absolutely to its first positioned parent.
+- Fixed: the element is positioned related to the browser window.
+- Sticky:the element is positioned based on the user's scroll position.
+
 # What is CSS selector specificity and how does it work?
+
+- css selectors over-written the preset styles
 
 # What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
 

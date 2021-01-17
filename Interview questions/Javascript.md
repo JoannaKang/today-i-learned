@@ -169,6 +169,16 @@ higherOrder (firstOrderFunc);
 | It has function scope     | It has block scope          |
 | Variables will be hoisted | Hoisted but not initialized |
 
+
+# let vs const
+- let: can be re-declared
+- const: Can't be re-declared, but can mutate
+```
+const userList = [];
+userList.push('John'); // Can mutate even though it can't re-assign
+console.log(userList); // ['John']
+```
+
 # What is Hoisting
 
 - Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
@@ -400,6 +410,13 @@ new Date(0) + 0          // 'Thu Jan 01 1970 02:00:00(EET)0'
 - document.getElementsByTagName(name): It finds an element by tag name
 - document.getElementsByClassName(name): It finds an element by class name
 
+# What is V8 engine
+- V8 is an open source high-performance JavaScript engine used by the Google Chrome browser, written in C++. It is also being used in the node.js project. 
+
+# Destructuring
+- The destructuring assignment is a JavaScript expression that makes it possible to unpack values from arrays or properties from objects into distinct variables.
+- It helps to avoid setting default values separately for each assignment.
+
 # What is MVC
 
 # CSS positioning
@@ -415,6 +432,7 @@ new Date(0) + 0          // 'Thu Jan 01 1970 02:00:00(EET)0'
 - Inline: Allows elements to stack
 
 # EM vs REM
+
 
 # z-index
 
