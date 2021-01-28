@@ -1,3 +1,5 @@
+// *Discriminated union: or 같은 개념
+
 type SuccessState = {
   result: 'success';
   response: {
