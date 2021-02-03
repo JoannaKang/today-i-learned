@@ -41,12 +41,23 @@
       }
     }
 
-  const maker = new CoffeeMachine(32);
-  console.log(maker)
-  console.log(maker.makeCoffee(2))
   //CoffeeMachine.makeCoffee(2) // static 키워드로 선언되지 않은 메서드는 인스턴스 선언 없이 호출할 수 없음
   const maker2 = CoffeeMachine.makeMachine(3) // makeMachine은 static으로 선언되었으므로 별도 인스턴스 생성하지 않고도 외부에서 접근 가능
 
+  // const maker = new CoffeeMachine(32); //Constructor를 private으로 지정하면 이렇게 인스턴스를 생성할 수 없다
   // console.log(CoffeeMachine.BEANS_GRAM_PER_SHOT) //BEANS_GRAM_PER_SHOT이 private이므로 외부에서 직접 접근은 불가능
+  const maker = CoffeeMachine.makeMachine(32) //makeMachine이라는 static method를 통해서 CoffeeMachine을 생성할 수 있음
   maker.fillCoffeeBeans(30) // 이렇게 접근해야 함
+
+  class User {
+    firstName: string;
+    lastName: string;
+    fullName: string;
+    constructor(firstName: string, lastName: string) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.fullName = `${firstName} ${lastName}`
+    }
+  }
+  const user = new User('Steve', 'Jobs')
 }
