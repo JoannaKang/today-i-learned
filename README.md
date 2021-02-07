@@ -46,6 +46,10 @@
 - [ ] D3 for interactive charts
 - [ ] [Danfo.js](https://github.com/JoannaKang/today-i-learned/tree/main/Danfo.js)
 
+> ### Typescript
+
+- [ ] [Fundamental Typescript](https://github.com/JoannaKang/today-i-learned/tree/main/typescript)
+
 > ### Rust 🦀
 
 - [ ] Rust + WebGL
