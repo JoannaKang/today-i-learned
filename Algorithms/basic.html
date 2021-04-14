@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+          // 1. 최소값 찾기
+          //   function solution(a, b, c){
+          //     let result;
+          //     if (a < b) result = a;
+          //     else result = b;
+          //     if(c < result) result = c;
+          //     return result;
+          //   }
+
+          //   console.log(solution(2, 5, 1));
+          // 2. 삼각형 판별하기
+          function solution(a, b, c) {
+            // My solution
+            // const sortedArray = [a, b, c].sort((num1, num2) => { return num1 - num2});
+            // if (sortedArray[2] < sortedArray[0] + sortedArray[1]) {
+            //   return 'YES';
+            // } else {
+            //   return 'NO';
+            // }
+            let answer = 'YES';
+            let max;
+            let total = a + b + c;
+            if (a > b) max = a;
+            else max = b;
+            if (c > max) max = c;
+            if (total-max <= max) answer = 'NO';
+
+            return answer;
+          }
+            console.log(solution(13, 33, 17));
+            console.log(solution(6, 7, 11));
+        </script>
+    </body>
+</html>

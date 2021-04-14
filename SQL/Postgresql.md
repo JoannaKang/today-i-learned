@@ -5,12 +5,12 @@
 | :--------------: | :----------: | :------------------------------------------: | :--------------------------------------------------------------------------------------: |
 | smallint | 2 bytes | small-range integer | -32768 to +32768 |
 | integer | 4 byes | typical choice for integer (without decimal) | -2147483648 to +2147483647 |
-| bigint | 8 bytes | large-range integer | -9223372036854775808 to +9223372036854775807 |
+| bigint | 8 bytes | large-range integer | -9223372036854775808 to +9223372036854775807(64 bit integer) |
 | decimal | variable | user-specified precision, exact | up to 131072 digits before the decimal point; up to 16383 digits after the decimal point |
 | real | 4 bytes | variable-precision, inexact | 6 decimal digits precision |
 | double precision | 8 bytes | 15 decimal digits precision |
 | smallserial | 2 bytes | small autoincrementing integer | 1 to 32767 |
-| serial | 4 bytes | autoincrementing integer | 1 to 2147483647 |
+| serial | 4 bytes | autoincrementing integer | 1 to 2147483647 (32 bit integer) |
 | bigserial | 8 bytes | large autoincrementing integer | 1 to 9223372036854775807 | 2) Text
 
 2 ) types
@@ -69,3 +69,43 @@ ADD PRIMARY KEY (column_1, column_2);
   - SET DEFAULT
   - RESTRICT
   - NO ACTION
+
+# 3. How to create function statement
+
+- Basic syntax
+
+```
+CREATE [or REPLACE] FUNCTION functin_name(param_list)
+-- REPLACE: when replace the existing function
+  RETURNS return_type
+  language plpsql
+  AS
+$$
+DECLARE
+  -- return variable declaration;
+BEGIN
+  -- logic
+END;
+$$
+```
+
+- Example
+
+```
+CREATE FUNCTION get_film_count (len_from int, len_to int)
+RETURN int
+LANGUAGE plpsql
+AS
+$$
+DECLARE
+  film_count integer;
+BEGIN
+  SELECT count(*)
+  INTO film_count // return value
+  FROM film
+  WHERE length between len_From and len_to;
+
+  RETURN film_count;
+END;
+$$;
+```
