@@ -16,26 +16,310 @@
 
           //   console.log(solution(2, 5, 1));
           // 2. 삼각형 판별하기
-          function solution(a, b, c) {
-            // My solution
-            // const sortedArray = [a, b, c].sort((num1, num2) => { return num1 - num2});
-            // if (sortedArray[2] < sortedArray[0] + sortedArray[1]) {
-            //   return 'YES';
-            // } else {
-            //   return 'NO';
-            // }
-            let answer = 'YES';
-            let max;
-            let total = a + b + c;
-            if (a > b) max = a;
-            else max = b;
-            if (c > max) max = c;
-            if (total-max <= max) answer = 'NO';
+          // function solution(a, b, c) {
+          //   // My solution
+          //   // const sortedArray = [a, b, c].sort((num1, num2) => { return num1 - num2});
+          //   // if (sortedArray[2] < sortedArray[0] + sortedArray[1]) {
+          //   //   return 'YES';
+          //   // } else {
+          //   //   return 'NO';
+          //   // }
+          //   let answer = 'YES';
+          //   let max;
+          //   let total = a + b + c;
+          //   if (a > b) max = a;
+          //   else max = b;
+          //   if (c > max) max = c;
+          //   if (total-max <= max) answer = 'NO';
 
-            return answer;
-          }
-            console.log(solution(13, 33, 17));
-            console.log(solution(6, 7, 11));
+          //   return answer;
+          // }
+          //   console.log(solution(13, 33, 17));
+          //   console.log(solution(6, 7, 11));
+        // 3. 연필개수
+        // function solution(a) {
+        //     // My solution       
+        //     let answer = Math.ceil(a / 12);
+        //     return answer;
+        //   }
+        //     console.log(solution(25));
+        // 4. 1부터 N 까지의 합
+        // function solution(a) {
+        //     // // My solution       
+        //     // let range =  [...Array(a).keys()].slice(1, a)
+        //     // const numbers = [...range , a]
+        //     // const answer = numbers.reduce((num1, num2) => num1 + num2)
+        //     // return answer
+        //     let answer = 0;
+        //     for (let i = 1; i <= a; i++) {
+        //       answer += i
+        //     }
+        //     return answer;
+        //   }
+        //     console.log(solution(6));  
+        // 5. 최소값 구하기           
+        // function solution(arr) {
+        //     // // My solution       
+        //     // let answer = Math.min(a, b, c, d, e ,f, g);
+
+        //     let answer;
+        //     let min = arr[0]
+
+        //     for (let i = 1; i < arr.length; i++) {
+        //       if (min > arr[i]) answer = arr[i];
+        //     }
+    
+        //     return answer;
+        //   }
+        //     console.log(solution([5, 3, 7, 11, 2, 15, 17]));  
+        // 7. 홀수  
+        // function solution(arr) {
+        //     // // My solution       
+        //     let answer= [];
+        //     // const odd = []
+        //     // for (let i = 0; i < arr.length; i++) {
+        //     //   if (arr[i] % 2 !== 0) {
+        //     //     odd.push(arr[i])
+        //     //   }
+        //     // }
+
+        //     // const minOdd = Math.min(...odd);
+        //     // let sumOfOdd = 0;
+        //     // for (let i = 0; i < odd.length; i++) {
+        //     //   sumOfOdd += odd[i];
+        //     // }
+
+        //     // answer = [sumOfOdd, minOdd]
+
+        //     // Solution
+        //     let sum = 0;
+        //     let min = Number.MAX_SAFE_INTEGER;
+        //     for (let x of arr) {
+        //       if (x % 2 === 1) {
+        //         sum += x
+        //         if (x<min) min = x;
+        //       }
+        //     }
+
+        //     answer.push(sum);
+        //     answer.push(min);
+
+        //     // 홀수를 찾기
+        //     // return 홀수의 합 / 홀수들 중 최소값
+    
+        //     return answer;
+        //   }
+        //     console.log(solution([12, 77, 38, 41, 53, 92, 85]));
+        // 8. 10부제
+        // function solution(day, arr) {
+        //     // // My solution       
+        //     let answer = 0;
+        //     for (let x in arr) {
+        //       if (arr[x] % 10 === day) {
+        //         answer += 1;
+        //       }
+        //     }          
+
+    
+        //     return answer;
+        //   }
+        //   const arr = [25, 23, 11, 47, 53, 17, 33]
+        //     console.log(solution(3, arr));
+        // 8. 일곱난쟁이
+        // function solution(arr) {
+        //   // // My solution       
+        //   const sumOfDwarfs = arr.reduce((dwarf1, dwarf2) => {
+        //     return dwarf1 + dwarf2;
+        //   })
+        //   const falseDwarfs = sumOfDwarfs - 100;
+
+        //   function getIndexOfDwarfs () {
+        //     for (let i = 0; i < arr.length - 1; i++) {
+        //       for (let j = 1; j < arr.length; j++) {
+        //         if (arr[i] + arr[j] === falseDwarfs) {
+        //           arr.splice(j, 1);
+        //           arr.splice(i, 1);
+        //           return arr;
+        //         }
+        //       }
+        //     }
+        //   }
+
+        //   return getIndexOfDwarfs();
+        //   }
+        //   const arr = [20, 7, 23, 19, 10, 15, 25, 8, 13]
+        //     console.log(solution(arr));
+        // 9. A를 #으로
+        // function solution(str) {
+        //   // // My solution       
+        //   // let string = [...str];
+
+        //   // for (let i = 0; i < string.length; i++) {
+        //   //   if (string[i] === 'A') {
+        //   //     string.splice(i, 1, '#')
+        //   //   }
+        //   // }
+
+        //   // return string.join('');
+        //   // Solution
+        //   let answer = "";
+        //   for (let x of str) {
+        //     console.log(x)
+        //     if (x === 'A') {
+        //       answer += '#';
+        //     }
+        //     else answer += x;
+        //   }
+
+        //   return answer;
+        //   }
+        //   const str = 'BANANA'
+        //     console.log(solution(str));   
+
+        // 10. 문자찾기
+        // function solution(alphabet, str) {
+        //   // // My solution
+        //   let answer = 0;
+
+        //   for (let x of str) {
+        //     if (x === alphabet) {
+        //       answer += 1;
+        //     }
+        //   }
+      
+        //   return answer;
+        //   }
+        //   const str = 'COMPUTERPROGRAMMING'
+        //   const alphabet = 'R'
+        //     console.log(solution(alphabet, str));
+        // 11. 대문자찾기
+        // function solution(str) {
+        //   // // My solution
+        //   let answer = 0;
+
+        //   for (let x of str) {
+        //     if (x === x.toUpperCase()) {
+        //       answer += 1;
+        //     }
+        //   }
+        // or
+        // let num = x.charCodeAt(); // 알파벳을 아스키코드로 변환
+        //     if (num >= 65 && num <= 90) answer ++;         //대문자의 아스키코드 범위    
+      
+        //   return answer;
+        //   }
+        //   const str = 'KoreaTIMEGood'
+        //     console.log(solution(str));   
+        // 12. 대문자로 통일
+        // function solution(str) {
+        //   // // My solution
+        //   let answer = '';
+
+        //   // for (let x of str) {
+        //   //   if (x === x.toLowerCase()) {
+        //   //     answer += x.toUpperCase();
+        //   //   } else {
+        //   //     answer += x;
+        //   //   }
+        //   // }
+        //   // or
+        //   for (let x of str) {
+        //     let num = x.charCodeAt();
+        //     if (num >= 97 && num <=122) answer += String.fromCharCode(num-32);
+        //     else answer += x;
+        //   }
+      
+        //   return answer;
+        //   }
+        //   const str = 'ItisTimeToStudy'
+        //     console.log(solution(str)); 
+        // 13. 대소문자 변환
+        // function solution(str) {
+        //   // // My solution
+        //   let answer = '';
+        //   for (let x of str) {
+        //     let num = x.charCodeAt();
+        //     if (num >= 97 && num <=122) {
+        //       answer += String.fromCharCode(num - 32);
+        //     } else if (num >= 65 && num <= 90) {
+        //       answer += String.fromCharCode(num + 32);
+        //     };
+        //   }
+        //   return answer;
+        //   }
+        //   const str = 'StuDY'
+        //   console.log(solution(str));            
+        // 14. 가장 긴 문자열
+        // function solution(array) {
+        //   // // My solution
+        //   let answer = '';
+        //   let max = 0;          
+        //   // array.forEach ((item, index) => {
+        //   //   if (item.length > max) {
+        //   //     max = item.length;
+        //   //     answer = array[index]
+        //   //   }
+        //   // })
+
+        //   return answer;
+        //   }
+        //   const array = ['5', 'teacher', 'time', 'student', 'beautiful', 'good']
+        //   console.log(solution(array));
+        
+        // 15. 가운데 문자 출력
+        // function solution(string) {
+        //   let answer = '';          
+        //   // // My solution
+        //   // let strLength = string.length;
+
+        //   // if (strLength % 2 === 0) {
+        //   //   answer += string[strLength/2 - 1];
+        //   //   answer += string[strLength/2];
+        //   // } else {
+        //   //   answer += string[Math.ceil(strLength/2)];
+        //   // }
+
+        //   let mid = Math.floor(string.length/2)
+        //   // if (string.length % 2 === 1) answer = string.substring(mid, mid+1);
+        //   // else answer = string.substring(mid-1, mid+1)
+        //   // or 
+        //   if (string.length % 2 === 1) answer = string.substr(mid, 1);
+        //   else answer = string.substr(mid-1, 2)
+
+        //   return answer;
+        //   }
+        //   const string1 = 'study';
+        //   const string2 = 'good'
+        //   console.log(solution(string1));
+        //   console.log(solution(string2));  
+        // 16. 중복문자제거        
+        // function solution(string) {
+        //   let answer = '';
+        //   for (let i = 0; i < string.length; i ++) {
+        //     if (i === string.indexOf(string[i])) answer += string[i];
+        //   }
+
+        //   return answer;
+        //   }
+        //   const string1 = 'ksekkset';
+        //   console.log(solution(string1)); 
+        // 17. 중복단어 제거
+        // function solution(array) {
+        //   let answer = [];
+        //   // my answer
+        //   // for (let i = 0; i < array.length; i++) {
+        //   //   if (i === array.indexOf(array[i]) && (typeof array[i] === 'string')) {
+        //   //     answer.push(array[i])
+        //   //   }
+        //   // }
+        //   answer = array.filter((item, index) => {
+        //     if (array.indexOf(item) === index) return item;
+        //   })          
+
+        //   return answer;
+        //   }
+        //   const array = ['good', 'time', 'good', 'time', 'student'];
+        //   console.log(solution(array));         
         </script>
     </body>
 </html>
