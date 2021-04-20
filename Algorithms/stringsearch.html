@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 1. 회문 문자열
+            // function solution(s){
+            //     let answer="YES";
+            //     const string = s.toLowerCase();
+            //     const n = s.length % 2 === 0 ? s.length / 2 : Math.floor(string.length/2);
+            //     // for (let i = 0; i < n; i ++) {
+            //     //   if (s[i] !== string[string.length-i -1]) {
+            //     //     answer = "NO";
+            //     //   }
+            //     // }
+            //     // or
+            //     if(string.split('').reverse().join('') !== string) return 'NO';
+            //     return answer;
+            // }
+            
+            // let str="gooooG";
+            // console.log(solution(str));
+            // 2. 유효한 팰린드롬
+            // function solution(str){
+            //     let answer="YES";
+            //     // My answer
+            //     // const filtered = [...str].filter((string) => {
+            //     //   return string.match('[a-zA-Z]');
+            //     // })
+            //     // const lowerCase = filtered.join('').toLowerCase();
+            //     // const middle = Math.floor(lowerCase.length/2);
+            //     // for (let i = 0; i < middle; i++) {
+            //     //   if (lowerCase[i] !== lowerCase[lowerCase.length -1 - i]) {
+            //     //     answer = 'NO';
+            //     //   }
+            //     // }
+            //     // or
+            //     s = str.toLowerCase().replace(/[^a-z]/g, '');
+            //     if (s.split('').reverse().join('') !== s) return 'NO';
+            //     return answer;
+            // }
+            
+            // let str="found7, time: study; Yduts; emit, 7Dnuof";
+            // console.log(solution(str));   
+            // 3. 숫자만 추출
+            // function solution(s){
+            //   let answer='';
+            //   // My answer
+            //   // const filtered = [...s].filter((item) => {
+            //   //   return !item.match('[a-zA-Z]')
+            //   // })
+            //   // return parseFloat(filtered.join(''))
+            //   // or
+            //   for (let x of s) {
+            //     console.log(!isNaN(x), x)
+            //     if (!isNaN(x)) answer+= x;
+            //   }
+            //   return parseInt(answer);
+            // }
+            // let str="g0en2T0s8eSoft";
+            // console.log(solution(str));
+            // 4. 가장 짧은 문자 거리
+            // function solution(str, alphabet){
+            //   let answer = [];
+            //   let p = 1000;
+            //   // 앞에서 뒤로
+            //   for (let i = 0; i < str.length; i++) {
+            //     if (str[i] === alphabet) {
+            //       p = 0;
+            //       answer.push(p)
+            //     } else {
+            //       p++;
+            //       answer.push(p)
+            //     }
+            //   }
+            //   // 뒤에서 앞으로
+            //   p = 1000;
+            //   for (let i = str.length -1; i >= 0 ; i--) {
+            //     if (str[i] === alphabet) {
+            //       p = 0;                  
+            //     } else {
+            //       p++;
+            //       answer[i] = Math.min(answer[i], p) // 둘 중 작은 값으로 리턴
+            //     }
+            //   }
+              
+            //   return answer;
+            // }
+            // let str="teachermode";
+            // let alphabet = "e"
+            // console.log(solution(str, alphabet));            
+            // 5. 문자열 압축
+            function solution(alphabet){
+              let answer = '';
+              let counter = 1;
+              alphabet = alphabet+" ";
+
+              for (let i = 0; i < alphabet.length -1; i++) {
+                if (alphabet[i] === alphabet[i + 1]) {
+                  counter += 1;
+                } else if (alphabet[i] !== alphabet[i + 1]) {
+                  answer += alphabet[i]
+                  if (counter > 1) answer += String(counter);
+                  counter = 1;
+                }
+              }
+              return answer;
+            }
+
+            const alphabet = "KKHSSSSSSSE"
+            console.log(solution(alphabet));                        
+        </script>
+    </body>
+</html>
+
+
+
