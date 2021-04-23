@@ -90,32 +90,97 @@
           // let b=[1, 5, 3, 5, 1, 2, 1, 4];
           // console.log(solution(a, b));   
           // 4. 후위식 연산
-          function solution(s){  
-            const stack = [];
-            for (let i = 0; i < s.length; i++) {
-              if (!isNaN(parseInt(s[i]))) {
-                stack.push(s[i]) 
-              } else {
-                let right = parseInt(stack.pop());
-                let left = parseInt(stack.pop());
-                let result;
-                if (s[i] === "+") {
-                  result = left + right;
-                } else if (s[i] === "-") {
-                  result = left - right;
-                } else if (s[i] === "*") {
-                  result = left * right;
-                } else if (s[i] === "/") {
-                  result = left / right;
+          // function solution(s){  
+          //   const stack = [];
+          //   for (let i = 0; i < s.length; i++) {
+          //     if (!isNaN(parseInt(s[i]))) {
+          //       stack.push(s[i]) 
+          //     } else {
+          //       let right = parseInt(stack.pop());
+          //       let left = parseInt(stack.pop());
+          //       let result;
+          //       if (s[i] === "+") {
+          //         result = left + right;
+          //       } else if (s[i] === "-") {
+          //         result = left - right;
+          //       } else if (s[i] === "*") {
+          //         result = left * right;
+          //       } else if (s[i] === "/") {
+          //         result = left / right;
+          //       }
+          //       stack.push(result)
+          //     }
+          //   }
+          //   return stack[0];
+          //   }
+
+          //   let str="352+*9-";
+          //   console.log(solution(str));          
+          // 5. 쇠막대기
+          // function solution(s){
+          //   // 여는 괄호를 만나면 스택에 쌓는다
+          //   // 닫는 괄호를 만나면 그 전 인덱스를 확인한다
+          //   //  -> 열린 괄호인 경우 : 레이저 => 스택의 마지막 아이템 하나를 pop 한 후 스택에 남은 갯수만큼을 카운트해준다        
+          //   //  -> 닫는 괄호인 경우 : 막대의 끝 => 스택의 마지막 아이템 하나를 pop 한후 스택에 1을 더한다
+          //   let answer = 0;
+          //   let stack = [];
+          //   for (let i = 0; i < s.length; i++) {
+          //     if (s[i] === "(") {
+          //       stack.push(s[i]);
+          //     } else if (s[i] === ")") {
+          //       stack.pop();
+          //       if (s[i-1] === "(") {
+          //         answer += stack.length;
+          //       } else {
+          //         answer ++;
+          //       }
+          //     }
+          //   }
+
+          //   return answer;
+          // }
+            
+          //   let a="()(((()())(())()))(())";
+          //   console.log(solution(a));          
+          // 6. 공주구하기
+          // *Queue: 먼저 들어간 자료가 먼저 나옴
+          // function solution(n, k){
+          //   let answer;
+          //   let queue = Array.from({length:n}, (v, i) => i+1);
+
+          //   while (queue.length) {
+          //     for (let i = 1 ; i < k; i++) {
+          //       queue.push(queue.shift())
+          //     }
+          //     queue.shift();
+          //     if (queue.length === 1) answer = queue.shift();
+          //   }
+            
+          //   return answer;
+          //   }
+
+          //   console.log(solution(8, 3));         
+          // 7. 교육과정 설계
+          function solution(need, plan){
+                let answer="YES";
+                let queue = [...need];
+                for(let i = 0; i < plan.length; i++) {
+                  // 필수과목인지?
+                  if (queue.indexOf(plan[i]) !== -1 && queue[0] === plan[i]) {
+                    queue.shift();
+                  } else if (queue.indexOf(plan[i]) !== -1 && queue[0] !== plan[i]) {
+                    answer = "NO";
+                  }
                 }
-                stack.push(result)
-              }
-            }
-            return stack[0];
+
+                if (queue.length > 0) answer = "NO";
+                
+                return answer;
             }
 
-            let str="352+*9-";
-            console.log(solution(str));          
+            let a="CBA";
+            let b="CBDAGE";
+            console.log(solution(a, b));           
         </script>
     </body>
 </html>
