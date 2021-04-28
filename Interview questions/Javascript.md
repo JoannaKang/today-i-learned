@@ -169,10 +169,11 @@ higherOrder (firstOrderFunc);
 | It has function scope     | It has block scope          |
 | Variables will be hoisted | Hoisted but not initialized |
 
-
 # let vs const
+
 - let: can be re-declared
 - const: Can't be re-declared, but can mutate
+
 ```
 const userList = [];
 userList.push('John'); // Can mutate even though it can't re-assign
@@ -411,9 +412,11 @@ new Date(0) + 0          // 'Thu Jan 01 1970 02:00:00(EET)0'
 - document.getElementsByClassName(name): It finds an element by class name
 
 # What is V8 engine
-- V8 is an open source high-performance JavaScript engine used by the Google Chrome browser, written in C++. It is also being used in the node.js project. 
+
+- V8 is an open source high-performance JavaScript engine used by the Google Chrome browser, written in C++. It is also being used in the node.js project.
 
 # Destructuring
+
 - The destructuring assignment is a JavaScript expression that makes it possible to unpack values from arrays or properties from objects into distinct variables.
 - It helps to avoid setting default values separately for each assignment.
 
@@ -433,9 +436,27 @@ new Date(0) + 0          // 'Thu Jan 01 1970 02:00:00(EET)0'
 
 # EM vs REM
 
-
 # z-index
 
 # Http request
 
 # What is REST Api entail
+
+# what is Closure & scope
+
+- 참고 - 스코프와 클로저의 관계 : https://2ssue.github.io/common_questions_for_Web_Developer/docs/Javascript/5_clouser&scope.html#%E1%84%8B%E1%85%AD%E1%84%8B%E1%85%A3%E1%86%A8
+- 참고2: https://meetup.toast.com/posts/86
+
+* 스코프
+  - the current context of code, which determines the accessibility of variables to JavaScript.
+    - Global variables are those declared outside of a block
+    - Local variables are those declared inside of a block
+  - 상수, 변수들의 접근이 허용된 영역
+  - 스코프 체인? 스코프 안쪽에 선언된 변수들부터 접근 후, 바깥의 스코프로 접근하게 된다. (밖에서는 안이 보이지 않고 안에서만 밖을 볼 수 있다.)
+* 클로저:
+  - A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment).
+  - A closure is the combination of a function and the lexical environment within which that function was declared
+  - a closure gives you access to an outer function’s scope from an inner function.
+  - 실행 스택과 관련 없는 스코프의 변수(비공개 변수)를 scope chain에 의해 사용할 수 있게 된 형태를 말한다.
+  - 함수가 선언된 환경의 (렉시컬) 스코프를 기억하여 함수가 스코프 밖에서 실행될 때에도 이 스코프에 접근할 수 있게 함?
+  - 내부 함수는 외부 함수의 지역변수에 접근할 수 있는데 외부 함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부 함수가 외부 함수의 변수에 접근할 수 있다. 이러한 메커니즘을 클로저라고 한다?
