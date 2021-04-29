@@ -1,4 +1,8 @@
-# Difference between React vs Vue
+# [ Freddie's flower ]
+
+---
+
+## Difference between React vs Vue
 
 - Both Vue.Js and React.Js are based on the Virtual DOM model
 - Vue has following advantage over React:
@@ -14,20 +18,20 @@
 3. suitable for mobile apps creating;
 4. more information and solutions available.
 
-# Have you ever used any kind of state management tool? Do you prefer to use Redux or context api to manage state?
+## Have you ever used any kind of state management tool? Do you prefer to use Redux or context api to manage state?
 
 - Most of the case, I prefer to use context api because It requiers less learning curve and less code
 - Managing Redux store state can be useful for big project but there is cons that Redux requires adding more libraries to the application bundle
 - Or If I use GraphQl, It's easirer to manage state globally without Redux. Also I can fix data overfetching problems as well
 
-# How to make better application structure in terms of reusability
+## How to make better application structure in terms of reusability
 
 - If I found some part of application has the same structure but only need different data, then I would consider separate that part as component
 - Create new component with separate files, Import that component on the top of the main file
 - Register that sub-component in component section, and bind that component inside of template as kebab-case style
 - Bind the pros using data, data can be manipulated by different methods
 
-# What is lifecycle hooks in Vue?
+## What is lifecycle hooks in Vue?
 
 - Origin URL: https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle
 
@@ -63,7 +67,7 @@
 (2) destroyed: Use destroyed if you need do any last-minute cleanup or inform a remote server that the component was destroyed:
 ```
 
-# What is MVC design pattern?
+## What is MVC design pattern?
 
 - The Model-View-Controller (MVC) is an architectural pattern that separates an application into three main logical components: the model, the view, and the controller.
 
@@ -71,7 +75,7 @@
 2. View: Any output representation of information, such as a chart or a diagram.
 3. Controller: Accepts input and converts it to commands for the model or view.
 
-# How to improve web accessibility?
+## How to improve web accessibility?
 
 - Origin link : https://webaccess.berkeley.edu/resources/tips/web-accessibility
 
@@ -100,7 +104,7 @@
 - When content updates dynamically (i.e. without a page refresh), screen readers may not be aware. This includes screen overlays, lightboxes, in-page updates, popups, and modal dialogs. Keyboard-only users may be trapped in page overlays.
 - These functions can easily be made accessible. Options include ARIA roles and alerts, as well as front-end development frameworks that specifically support accessibility
 
-# How to improve website in terms of SEO?
+## How to improve website in terms of SEO?
 
 - Origin link : https://www.jeffbullas.com/13-super-easy-ways-to-immediately-improve-your-seo-ranking/
 
@@ -112,6 +116,40 @@
 6. Layout and formatting: Proper formatting and a user-friendly layout can help improve user experience and make your content easy to scan and digest, so your readers will stay on your site longer and consume your website’s information.
 7. Outbound links: Linking out to well-respected authority sites will not only increase the relevancy of your content and time readers spend on your site, but it is also believed to send trust signals to Google and improve SEO ranking.
 
-# How you approach when you debugging code?
+## How you approach when you debugging code?
 
-# What's your favourite tech stack?
+## What's your favourite tech stack?
+
+---
+
+# [Vodafone]
+
+---
+
+## How do you test your code?
+
+## what kind of test that I have written & what framework did I used for?
+
+## What is functional component in React?
+
+## What is React hook?
+
+## What is bind, this?
+
+## What kind of Frontend framework that I have used? What's your preference?
+
+## What's difference between var vs let vs const
+
+## What is promise? async await? Are there any different way of dealing wiht asynchronous code?
+
+## What is most preferable feature of JS ES6?
+
+## What's the unique feature of arrow function?
+
+## What is http? Explain about http request methods and response code
+
+## What techstack that I want to master in the future?
+
+## How I collaborate with other colleagues?
+
+## How I approach to new tech stack or development environment? (Dealing with legacy codes)
