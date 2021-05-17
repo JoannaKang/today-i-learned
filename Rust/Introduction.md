@@ -60,3 +60,21 @@
   ```
   let a: [i32; 5] = [1, 2, 3, 4, 5];
   ```
+
+3. Struct
+
+- A type that is composed of other types.
+- Structs in Rust come in three flavors
+
+  - Structs with named fields,
+  - tuple structs
+  - unit structs.
+
+- How to instantiate
+  ```
+  let example = Foo {
+      field1: 42.0,
+      field2: "blah".to_string(),
+      etc: true,
+  };
+  ```
