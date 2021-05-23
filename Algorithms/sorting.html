@@ -5,24 +5,43 @@
     </head>
     <body>
         <script>
-          //  선택정렬
+          // //  버블정렬
+          // function solution (arr) {
+          //   let i = 0;
+          //   while (i < arr.length) {
+          //     if (arr[i] > arr[i+1]) {
+          //       let temp = arr[i];
+          //       arr[i] = arr[i+1];
+          //       arr[i+1] = temp;
+          //       i = 0;
+          //     } else {
+          //       i++;
+          //     }
+          //   }
+          //   return arr;
+          // }
+
+          // 선택정렬
+          // 이중 for 문으로 arr을 순회하면서 가장 작은 숫자의 인덱스를 찾는다
+          // 이중 j for 문이 다 돌고 나면 가장 앞 인덱스에 올 작은 숫자를 찾은 것, minIndex의 값을 index i 의 아이템으로 업데이트
           function solution (arr) {
-            let i = 0;
-            while (i < arr.length) {
-              if (arr[i] > arr[i+1]) {
-                let temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
-                i = 0;
-              } else {
-                i++;
+            for (let i = 0; i < arr.length -1; i++) {
+              let indexMin = i;
+              for (let j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[indexMin]) {
+                  indexMin = j;
+                }
               }
+              let temp = arr[indexMin];
+              arr[indexMin] = arr[i];
+              arr[i] = temp;
             }
-            return arr;
+            return arr
           }
 
             let arr=[13, 5, 11, 7, 23, 15];
             console.log(solution(arr));
+
         </script>
     </body>
 </html>
