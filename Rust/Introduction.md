@@ -78,3 +78,11 @@
       etc: true,
   };
   ```
+
+4. Enum
+
+- The enum keyword allows the creation of a type which may be one of a few different variants
+
+Panic?
+
+- This allows a program to terminate immediately and provide feedback to the caller of the program. panic! should be used when a program reaches an unrecoverable state.

@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+          //  선택정렬
+          function solution (arr) {
+            let i = 0;
+            while (i < arr.length) {
+              if (arr[i] > arr[i+1]) {
+                let temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+                i = 0;
+              } else {
+                i++;
+              }
+            }
+            return arr;
+          }
+
+            let arr=[13, 5, 11, 7, 23, 15];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
