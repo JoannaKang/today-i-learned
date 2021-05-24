@@ -5,7 +5,8 @@
     </head>
     <body>
         <script>
-          // //  버블정렬
+          //  버블정렬
+          // 앞뒤의 숫자를 비교해가며 맨 뒤로 정렬될 가장 큰 숫자부터 찾는다
           // function solution (arr) {
           //   let i = 0;
           //   while (i < arr.length) {
@@ -24,24 +25,96 @@
           // 선택정렬
           // 이중 for 문으로 arr을 순회하면서 가장 작은 숫자의 인덱스를 찾는다
           // 이중 j for 문이 다 돌고 나면 가장 앞 인덱스에 올 작은 숫자를 찾은 것, minIndex의 값을 index i 의 아이템으로 업데이트
-          function solution (arr) {
-            for (let i = 0; i < arr.length -1; i++) {
-              let indexMin = i;
-              for (let j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[indexMin]) {
-                  indexMin = j;
-                }
+          // function solution (arr) {
+          //   for (let i = 0; i < arr.length -1; i++) {
+          //     let indexMin = i;
+          //     for (let j = i + 1; j < arr.length; j++) { // i 인덱스의 뒷편부터 돌면 된다
+          //       if (arr[j] < arr[indexMin]) {
+          //         indexMin = j;
+          //       }
+          //     }
+          //     let temp = arr[indexMin];
+          //     arr[indexMin] = arr[i];
+          //     arr[i] = temp;
+          //   }
+          //   return arr
+          // }
+
+          //   let arr=[13, 5, 11, 7, 23, 15];
+          //   console.log(solution(arr));
+
+          // special sort (bubble sort 응용)
+          // function solution (arr) {
+          //   for(let i = 0; i  < arr.length; i++) {
+          //     for (let j = 0; j <arr.length -1; j++) {
+          //       if (arr[j] > 0 && arr[j+1] < 0) {
+          //         [arr[j], arr[j+1]] = [arr[j+1], arr[j]]
+          //       }
+          //     }
+          //   }
+          //   return arr;
+          // }
+
+          // let arr=[1, 2, 3, -3, -2, 5, 6, -6];
+          // console.log(solution(arr));
+          
+          // 삽입정렬 
+          // function solution (arr) {
+          //   for (let i = 0; i < arr.length; i++) {
+          //     let temp = arr[i], j;
+          //     for (j = i-1; j>=0; j--) { // i 인덱스의 전까지 탐색
+          //       if (arr[j] > temp) arr[j+1]=arr[j]; // 현재의 포인터값과 포인터 이전의 값들을 비교하면서 이전의 값이 더 큰게 있는 경우 자리를 바꾼다
+          //       else break;
+          //     }
+          //     arr[j+1] = temp;
+          //   }
+          //   return arr;
+          // }
+          // let arr=[11, 7, 5, 6, 10, 9];
+          // console.log(solution(arr));
+          
+          // least recently used: 
+          // 1.삽입정렬 응용
+          // function solution (size, arr) {
+          //   let answer = Array.from ({length:size}, () => 0);
+          //   arr.forEach(el => {
+          //     let pos = -1; // miss case 인 경우에 이 값은 -1로 남아있게된다.
+          //     for (let i = 0; i < size; i++) if (el === answer[i]) pos = i; // Hit case: 캐시되어있는 아이템의 인덱스를 저장
+              
+          //     if (pos === -1) { // miss case인 경우
+          //       for(let i=size-1; i>=1; i--) {
+          //         answer[i] = answer[i-1];
+          //       }
+          //       answer[0] = el; // 현재 작업의 우선순위가 가장 높으므로 인덱스 0번에 값 저장
+          //     } else { // hit case인 경우
+          //       for(let i=pos; i>=1; i--) {
+          //         answer[i] = answer[i-1];
+          //       }
+          //       answer[0] = el;
+          //     }
+          //   })
+          //   return answer;
+          // }
+          // 2. 메서드 활용
+          function solution (size, arr) {
+            let answer = [];
+            arr.forEach(x => {
+              let pos = -1;
+              for (let i = 0; i < size; i++) {
+                if (x === answer[i]) pos = i;
               }
-              let temp = arr[indexMin];
-              arr[indexMin] = arr[i];
-              arr[i] = temp;
-            }
-            return arr
+              if (pos === -1) {
+                answer.unshift(x);
+                if (answer.length > size) answer.pop();
+              } else {
+                answer.splice(pos, 1);
+                answer.unshift(x);
+              }
+            })
+            return answer;
           }
-
-            let arr=[13, 5, 11, 7, 23, 15];
-            console.log(solution(arr));
-
+          let arr=[1, 2, 3, 2, 6, 2, 3, 5, 7, 11, 13, 14, 16, 11];
+          console.log(solution(5, arr));
         </script>
     </body>
 </html>
