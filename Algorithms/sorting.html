@@ -5,7 +5,7 @@
     </head>
     <body>
         <script>
-          //  버블정렬
+          //  1. 버블정렬
           // 앞뒤의 숫자를 비교해가며 맨 뒤로 정렬될 가장 큰 숫자부터 찾는다
           // function solution (arr) {
           //   let i = 0;
@@ -22,7 +22,7 @@
           //   return arr;
           // }
 
-          // 선택정렬
+          // 2. 선택정렬
           // 이중 for 문으로 arr을 순회하면서 가장 작은 숫자의 인덱스를 찾는다
           // 이중 j for 문이 다 돌고 나면 가장 앞 인덱스에 올 작은 숫자를 찾은 것, minIndex의 값을 index i 의 아이템으로 업데이트
           // function solution (arr) {
@@ -43,7 +43,7 @@
           //   let arr=[13, 5, 11, 7, 23, 15];
           //   console.log(solution(arr));
 
-          // special sort (bubble sort 응용)
+          // 3. special sort (bubble sort 응용)
           // function solution (arr) {
           //   for(let i = 0; i  < arr.length; i++) {
           //     for (let j = 0; j <arr.length -1; j++) {
@@ -58,7 +58,7 @@
           // let arr=[1, 2, 3, -3, -2, 5, 6, -6];
           // console.log(solution(arr));
           
-          // 삽입정렬 
+          // 4. 삽입정렬 
           // function solution (arr) {
           //   for (let i = 0; i < arr.length; i++) {
           //     let temp = arr[i], j;
@@ -74,7 +74,7 @@
           // console.log(solution(arr));
           
           // least recently used: 
-          // 1.삽입정렬 응용
+          // 4-1.삽입정렬 응용
           // function solution (size, arr) {
           //   let answer = Array.from ({length:size}, () => 0);
           //   arr.forEach(el => {
@@ -95,26 +95,183 @@
           //   })
           //   return answer;
           // }
-          // 2. 메서드 활용
-          function solution (size, arr) {
-            let answer = [];
-            arr.forEach(x => {
-              let pos = -1;
-              for (let i = 0; i < size; i++) {
-                if (x === answer[i]) pos = i;
+          // 4-2. 메서드 활용
+          // function solution (size, arr) {
+          //   let answer = [];
+          //   arr.forEach(x => {
+          //     let pos = -1;
+          //     for (let i = 0; i < size; i++) {
+          //       if (x === answer[i]) pos = i;
+          //     }
+          //     if (pos === -1) {
+          //       answer.unshift(x);
+          //       if (answer.length > size) answer.pop();
+          //     } else {
+          //       answer.splice(pos, 1);
+          //       answer.unshift(x);
+          //     }
+          //   })
+          //   return answer;
+          // }
+          // let arr=[1, 2, 3, 2, 6, 2, 3, 5, 7, 11, 13, 14, 16, 11];
+          // console.log(solution(5, arr));
+          // 5. 장난꾸러기 현수
+          // function solution (arr) {
+          //   let answer = [];
+          //   const copy = arr.slice();
+          //   const sorted = arr.sort((a, b) => a - b);
+
+          //   for (let i = 0; i < arr.length; i++) {
+          //     if (copy[i] !== sorted[i]) {
+          //       answer.push(i+1);
+          //     }
+          //   }
+          //   return answer;
+          // }
+          
+          // let arr=[120, 125, 152, 130, 135, 135, 143, 127, 160];
+          //   console.log(solution(arr));
+          // 6. 좌표 정렬
+          // function solution (arr) {
+          //   const sorted = arr.sort((a,b) => {
+          //     if (a[0] === b [0]) return a[1] - b[1];
+          //     else return a[0] - b[0];
+          //   })
+          //   return sorted;
+          // }
+          // let arr=[[2, 7], [1, 3], [1, 2], [2, 5], [3, 6]];
+          // console.log(solution(arr));
+          // 7. 회의실 배정 (그리디)
+          // 그리디 알고리즘: 문제를 해결하는 과정에서 그 순간마다 최적이라고 생각되는 결정을 하는 방식으로 진행해 최종 해답에 도달하는 문제 해결 방식
+          // 접근방법: 끝나는 시간 기준으로 정렬하기
+          // function solution (arr) {
+          //   let answer = 0;
+          //   const sorted = arr.sort((a, b) => {
+          //     if (a[1] === b[1]) {
+          //       return a[0]-b[0]
+          //     } else {
+          //       return a[1] - b[1];
+          //     }
+          //   });
+            
+          //   let et = 0;
+          //   for (let x of arr) {
+          //     if (x[0] >= et) {
+          //       answer++;
+          //       et = x[1];
+          //       }
+          //   }
+          //   return answer;
+          // }
+
+          // let arr=[[1, 4], [2, 3], [3, 5], [4, 6], [5, 7]];
+          // console.log(solution(arr));
+          // 9. 결혼식
+          // function solution (arr) {
+          //   let answer = 0;
+          //   let timeline = [];
+          //   // 도착시간, 떠나는 시간을 분리한다
+          //   for (let x of arr) {
+          //     timeline.push([x[0], 's']); // 도착하는 시간
+          //     timeline.push([x[1], 'e']); // 떠나는 시간
+          //   }
+          //   timeline.sort((a, b) => {
+          //     if (a[0] === b[0]) return a[1].charCodeAt() - b[1].charCodeAt(); // 아스키코드로 변환 후 정렬한다, e가 앞으로 오면서 정렬됨 
+          //     else return a[0] - b[0];
+          //   });
+          //   let cnt = 0 // s를 만나면 카운팅을 증가시킨다, e를 만나면 카운팅을 감소시킴
+          //   for (let x of timeline) {
+          //     if(x[1] === 's') cnt++;
+          //     else cnt --;
+          //     answer = Math.max(answer, cnt);
+          //   }
+          //   return answer;
+          // }
+
+          // let arr=[[14, 18], [12, 15], [15, 20], [20, 30], [5, 14]];
+          // console.log(solution(arr));   
+          // 10. 이분검색
+          // 탐색해야하는 어레이를 반씩 나누어서 찾으려는 값이 있는지를 확인하는 방법
+          // function solution(target, arr) {
+          //   let answer;
+          //   const sorted = arr.sort((a, b) => a - b);
+          //   let lt = 0, rt= arr.length-1;
+          //   while(lt <= rt) { // 양쪽의 포인터들이 서로 교차할때까지 반복
+          //     let mid = parseInt((lt+rt)/2); // 중앙값을 정한다
+          //     if (arr[mid] === target) {
+          //       answer = mid + 1;
+          //       break;
+          //     } else if (arr[mid]>target) { // 중간값이 찾고자하는 값보다 크다면
+          //       rt = mid -1;
+          //     } else {
+          //       lt = mid + 1;
+          //     }
+          //   }
+          //   return answer;
+          // }
+          // let arr=[23, 87, 65, 12, 57, 32, 99, 81];
+          // console.log(solution(32, arr));
+          // 11. 뮤직비디오 : 결정 알고리즘
+          // function count(songs, capacity){
+          //       let cnt=1, sum=0;
+          //       for(let x of songs){
+          //           if(sum+x > capacity){
+          //               cnt++;
+          //               sum=x;
+          //           }
+          //           else sum+=x;
+          //       }
+          //       return cnt;
+          //   }
+            
+          //   function solution(m, songs){
+          //       let answer;
+          //       let lt=Math.max(...songs);
+          //       let rt=songs.reduce((a, b)=>a+b, 0);
+          //       while(lt<=rt){
+          //           let mid=parseInt((lt+rt)/2);
+          //           if(count(songs, mid)<=m){
+          //               answer=mid;
+          //               rt=mid-1;
+          //           }
+          //           else{
+          //               lt=mid+1;
+          //           }
+          //       } 
+          //       return answer;
+          //   }
+          // let arr=[1, 2, 3, 4, 5, 6, 7, 8, 9];
+          // console.log(solution(3, arr));
+          // 12. 마구간 정하기 (결정 알고리즘)
+          function count(stable, dist){
+              let cnt=1, ep=stable[0]; // ep: 방금전 말을 배치한 인덱스
+              for(let i=1; i<stable.length; i++){ // 마굿간 좌표를 순회
+                  if(stable[i]-ep>=dist){ // 가장 가까운 말의 거리보다는 커야 말을 새로 배치할 수 있다.
+                      cnt++; // 말의 갯수를 하나 올려줌
+                      ep=stable[i]; // 말을 새 좌표에 배치한다
+                  }
               }
-              if (pos === -1) {
-                answer.unshift(x);
-                if (answer.length > size) answer.pop();
-              } else {
-                answer.splice(pos, 1);
-                answer.unshift(x);
-              }
-            })
-            return answer;
-          }
-          let arr=[1, 2, 3, 2, 6, 2, 3, 5, 7, 11, 13, 14, 16, 11];
-          console.log(solution(5, arr));
+              return cnt;
+            }
+            function solution(c, stable){
+                let answer;
+                stable.sort((a, b)=>a-b);
+                let lt=1; // 왼쪽끝
+                let rt=stable[stable.length-1]; // 오른쪽끝
+                while(lt<=rt){
+                    let mid=parseInt((lt+rt)/2); // 중간값을 정한다
+                    if(count(stable, mid)>=c){
+                        answer=mid;
+                        lt=mid+1;
+                    }
+                    else rt=mid-1;
+                }
+                return answer;
+            }
+
+            let arr=[1, 2, 8, 4, 9];
+            console.log(solution(3, arr));
+
         </script>
     </body>
 </html>
