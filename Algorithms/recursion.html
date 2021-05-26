@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            // 1. 재귀함수
+            // function solution(n){
+            //     function DFS(L){
+            //         if(L==0) return; // 종료조건 -> 콜스택에 누적된 L값들이 최근 값부터 순차적으로 호출됨 (*stack: LIFO)
+            //         else{
+            //             DFS(L-1); // -> 인자를 1씩 줄여가며 게속 함수를 호출한다 => 콜스택에 누적됨 
+            //             console.log(L);   
+            //         }
+            //     }
+            //     DFS(n);
+            // }
+            // solution(3);
+            // 2. 이진수 출력
+            function solution(n) {
+              let answer="";
+              function DFS(n) {
+                if(n === 0) return;
+                else {
+                  DFS(parseInt(n/2));              
+                  answer += (n%2);
+                }
+              }
+              DFS(n);
+              return answer;
+            }
+            console.log(solution(11));
+
+        </script>
+    </body>
+</html>
