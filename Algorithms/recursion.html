@@ -205,30 +205,148 @@
 
             // 10. 순열 구하기
             // 중복을 피하기 위해서 check 배열 생성 필요 -> tmp 배열에 해당 원소가 들어가있으면 1 아니면 0
-            function solution (m, arr) { //m=순열 아이템의 갯수
-                let answer = [];
-                n = arr.length;
-                let ch = Array.from({length: n}, () => 0);
-                let tmp = Array.from({length:m}, () => 0);
-                function DFS(L) {
-                    if (L===m) {
-                        answer.push(tmp.slice());
-                    } else {
-                        for(let i=0; i<n; i++) {
-                            if (ch[i]===0) {
-                                ch[i] = 1;
-                                tmp[L] = arr[i];
-                                DFS(L+1); // 다음 배열 아이템으로 넘어가고
-                                ch[i]=0; // 1로 체크되어있는 check 배열값을 원래대로 되롤림
-                            }
+            // function solution (m, arr) { //m=순열 아이템의 갯수
+            //     let answer = [];
+            //     n = arr.length;
+            //     let ch = Array.from({length: n}, () => 0);
+            //     let tmp = Array.from({length:m}, () => 0);
+            //     function DFS(L) {
+            //         if (L===m) {
+            //             answer.push(tmp.slice());
+            //         } else {
+            //             for(let i=0; i<n; i++) {
+            //                 if (ch[i]===0) {
+            //                     ch[i] = 1;
+            //                     tmp[L] = arr[i];
+            //                     DFS(L+1); // 다음 배열 아이템으로 넘어가고
+            //                     ch[i]=0; // 1로 체크되어있는 check 배열값을 원래대로 되롤림
+            //                 }
+            //             }
+            //         }
+            //     }
+            //     DFS(0);
+            //     return answer;
+            // }
+            // let arr = [3, 6, 9, 5];
+            // console.log(solution(2, arr));
+
+            // 11. 팩토리얼
+            // function solution (n) {
+            //     let answer;
+            //     function DFS(n) {
+            //         if (n===1) {
+            //             return 1;
+            //         } else {
+            //             return n * DFS(n-1);
+            //         }
+            //     }
+            //     answer = DFS(n);
+            //     return answer;
+            // }
+            // console.log(solution(5));
+
+            // 12. 조합 (메모이제이션)
+            // 1) simple solution
+            // function solution (n, r) {
+            //     let answer;
+            //     function DFS(n, r) {
+            //         if (n===r || r===0) {
+            //             return 1;
+            //         } else {
+            //             return DFS(n-1, r-1) + DFS(n-1, r);
+            //         }            
+            //     }
+            //     answer = DFS(n, r);
+            //     return answer;
+            // }
+            // 2) memoization solution: 2차원 배열에 값을 저장한 후 재계산하지 않도록 
+            // function solution (n, r) {
+            //     let answer;
+            //     let dy = Array.from(Array(35), () =>Array(35).fill(0)); // 조합 계산 값을 저장하는 2차원 배열
+            //     function DFS(n, r) {
+            //         if (dy[n][r]) return dy[n][r]; // 이미 배열에 저장되어있다면 재계산하지 않고 그 값을 불러옴
+            //         if (n===r || r===0) return 1;
+            //         else return dy[n][r] = DFS(n-1, r-1) + DFS(n-1, r);
+            //     }
+            //     answer = DFS(n, r);
+            //     return answer;
+            // }            
+
+            // console.log(solution(33, 19))
+            
+            //13. 수열 추측하기 
+            // function solution(n, f) {
+            //     let answer, flag;
+            //     let dy = Array.from(Array(11), () => Array(11).fill(0));
+            //     let ch = Array.from({length: n+1}, ()=>0); 
+            //     let p =  Array.from ({length: n}, ()=>0); // 순열값 저장
+            //     let b = Array.from({length: n}, ()=>0); // 조합값 저장
+            //     function combi(n, r) {
+            //         if (dy[n][r]>0) return dy[n][r];
+            //         if(n===r || r===0) return 1;
+            //         else return dy[n][r]=combi(n-1, r-1)+combi(n-1, r); 
+            //     }
+            //     function DFS(L, sum) { // sum == final 값
+            //         if(flag) return;
+            //         if(L===n && sum === f) {
+            //             answer = p.slice();
+            //         } else {
+            //             for(let i=1; i<=n; i++) {
+            //                 if (ch[i] === 0) {
+            //                     ch[i] = 1; // 순열 계산되었음으로 체크?
+            //                     p[L] = i;
+            //                     DFS(L+1, sum+(b[L]*p[L]));
+            //                     ch[i] = 0;
+            //                 }
+            //             }
+            //         }
+            //     }
+
+            //     // 조합값을 구해서 b에 저장해둔다
+            //     for (let i=0; i<n; i++) {
+            //         b[i] = combi(n-1, i);                    
+            //     }
+            //     DFS(0,0);
+            //     return answer;
+            // }
+            // console.log(solution(4, 16))
+
+            // 14. 조합구하기
+            // function solution(n,m) {
+            //     let answer = [];
+            //     let tmp = Array.from({length:m}, ()=>0);
+            //     function DFS (L, s) {
+            //         if (L === m) {
+                        
+            //         } else {
+            //             for (let i=s; i <=n; i++) {
+            //                 tmp[L] = i;
+            //                 DFS(L+1, i+1)
+            //             }
+            //         }
+            //     }
+            //     DFS(0,1);
+            //     return answer;
+            // }
+            // 15. 수들의 조합
+            function solution(n, k, arr, m){         
+                let answer=0;
+                function DFS(L, s, sum){
+                    if(L===k){
+                        if(sum%m===0) answer++; // 숫자의 합이 6의 배수인경우는 카운트++
+                    } else{
+                        for(let i=s; i<n; i++){
+                            DFS(L+1, i+1, sum+arr[i]); // 뽑은 숫자의 합을 누적해준다
                         }
                     }
                 }
-                DFS(0);
+
+                DFS(0, 0, 0);
                 return answer;
             }
-            let arr = [3, 6, 9, 5];
-            console.log(solution(2, arr));
+
+            let arr=[2, 4, 5, 8, 12];
+            console.log(solution(5, 3, arr, 6));            
         </script>
     </body>
 </html>
