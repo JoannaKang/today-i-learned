@@ -316,37 +316,38 @@
             //     let answer = [];
             //     let tmp = Array.from({length:m}, ()=>0);
             //     function DFS (L, s) {
-            //         if (L === m) {
-                        
-            //         } else {
-            //             for (let i=s; i <=n; i++) {
-            //                 tmp[L] = i;
-            //                 DFS(L+1, i+1)
+            //         if (L === m) { // 스택에 쌓인 DFS 함수의 결과가 pop+answer에 push되는 조건
+            //             answer.push(tmp.slice());
+            //         } else { // 재귀 트리가 뻗어나가는 케이스
+            //             for (let i=s; i <=n; i++) { //n 가지가 뻗어나가는 갯수 / i= 뽑힌 숫자
+            //                 tmp[L] = i; // 숫자가 뽑히면 Tmp 배열에 뽑힌 숫자를 기록해둔다
+            //                 DFS(L+1, i+1) // L=재귀 트리가 뻗어나간 뎁스, i=뽑힌 숫자
             //             }
             //         }
             //     }
             //     DFS(0,1);
             //     return answer;
             // }
+            // console.log(solution(4, 2))
             // 15. 수들의 조합
-            function solution(n, k, arr, m){         
-                let answer=0;
-                function DFS(L, s, sum){
-                    if(L===k){
-                        if(sum%m===0) answer++; // 숫자의 합이 6의 배수인경우는 카운트++
-                    } else{
-                        for(let i=s; i<n; i++){
-                            DFS(L+1, i+1, sum+arr[i]); // 뽑은 숫자의 합을 누적해준다
-                        }
-                    }
-                }
+            // function solution(n, k, arr, m){         
+            //     let answer=0;
+            //     function DFS(L, s, sum){
+            //         if(L===k){
+            //             if(sum%m===0) answer++; // 숫자의 합이 6의 배수인경우는 카운트++
+            //         } else{
+            //             for(let i=s; i<n; i++){
+            //                 DFS(L+1, i+1, sum+arr[i]); // 뽑은 숫자의 합을 누적해준다
+            //             }
+            //         }
+            //     }
 
-                DFS(0, 0, 0);
-                return answer;
-            }
+            //     DFS(0, 0, 0);
+            //     return answer;
+            // }
 
-            let arr=[2, 4, 5, 8, 12];
-            console.log(solution(5, 3, arr, 6));            
+            // let arr=[2, 4, 5, 8, 12];
+            // console.log(solution(5, 3, arr, 6));            
         </script>
     </body>
 </html>
