@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+          // 1. 계단오르기 -> 점화식을 만드는게 핵심
+          // function solution(n){  
+          //       let answer=0;
+          //       let dy=Array.from({length:n+1}, ()=>0);
+          //       dy[1]=1;
+          //       dy[2]=2;
+          //       for(let i=3; i<=n; i++){
+          //           dy[i]=dy[i-2]+dy[i-1];
+          //       }
+          //       answer=dy[n];
+          //       return answer;
+          //   }
+
+          //   console.log(solution(7));
+
+          // 2. 돌다리 건너기
+          // function solution(n){  
+          //       let answer=0;
+          //       let dy=Array.from({length:n+2}, ()=>0);
+          //       dy[1]=1;
+          //       dy[2]=2;
+          //       for(let i=3; i<=n+1; i++){
+          //           dy[i]=dy[i-2]+dy[i-1];
+          //       }
+          //       answer=dy[n+1];
+          //       return answer;
+          //   }
+
+          //   console.log(solution(7));
+
+          // 3. 최대 부분 증가 수열
+          function solution(arr) {
+            let answer = 0;
+            let dy = Array.from({length: arr.length}, ()=>0);
+            dy[0] = 1; // 첫번째 수열 길이는 1로 초기화
+            for (let i=1; i < arr.length; i++) {
+              let max=0;
+              for (let j=i-1; j>=0; j--) {
+                if(arr[j] < arr[i] && dy[j] > max) { // 앞의 항이 될 수 있는 조건: 뒤의 항이 앞의 항보다 크고 && 수열의 인덱스가 기존의 최대길이보다 길때
+                  max = dy[j]; // max값 업데이트
+                }
+              }
+              dy[i] = max + 1;
+              answer = Math.max(answer, dy[i]);
+            }
+            return answer;
+          }
+          let arr=[5, 3, 7, 8, 6, 2, 9, 4];
+          console.log(solution(arr));
+        </script>
+    </body>
+</html>
