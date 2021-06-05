@@ -36,24 +36,65 @@
           //   console.log(solution(7));
 
           // 3. 최대 부분 증가 수열
-          function solution(arr) {
-            let answer = 0;
-            let dy = Array.from({length: arr.length}, ()=>0);
-            dy[0] = 1; // 첫번째 수열 길이는 1로 초기화
-            for (let i=1; i < arr.length; i++) {
-              let max=0;
-              for (let j=i-1; j>=0; j--) {
-                if(arr[j] < arr[i] && dy[j] > max) { // 앞의 항이 될 수 있는 조건: 뒤의 항이 앞의 항보다 크고 && 수열의 인덱스가 기존의 최대길이보다 길때
-                  max = dy[j]; // max값 업데이트
-                }
+          // function solution(arr) {
+          //   let answer = 0;
+          //   let dy = Array.from({length: arr.length}, ()=>0);
+          //   dy[0] = 1; // 첫번째 수열 길이는 1로 초기화
+          //   for (let i=1; i < arr.length; i++) {
+          //     let max=0;
+          //     for (let j=i-1; j>=0; j--) {
+          //       if(arr[j] < arr[i] && dy[j] > max) { // 앞의 항이 될 수 있는 조건: 뒤의 항이 앞의 항보다 크고 && 수열의 인덱스가 기존의 최대길이보다 길때
+          //         max = dy[j]; // max값 업데이트
+          //       }
+          //     }
+          //     dy[i] = max + 1;
+          //     answer = Math.max(answer, dy[i]);
+          //   }
+          //   return answer;
+          // }
+          // let arr=[5, 3, 7, 8, 6, 2, 9, 4];
+          // consle.log(solution(arr));
+
+          // 4. 동전교환 (냅색 알고리즘)
+          // function solution(m, coin){  
+          // // *문제: 1,2,5원 세 종류의 동전으로 15를 거슬러줄 경우 사용하는 동전의 최소갯수를 리턴
+          // // *접근법 
+          // // 1) 1~15원을 거슬러주는 상황을 모두 시뮬레이션한다고 가정
+          // // 2) arr의 동전 종류(1,2,5)를 활용해서 가능한 경우의 수를 하나씩 구해나가면서 15원을 거슬러주는 경우의 수 중 가장 작은값을 리턴
+          //   let answer = 0;
+          //   let dy = Array.from({length:m+1}, ()=>1000); // 15원을 거슬러주는 경우의 수들을 시뮬레이션하는 다이나믹 테이블
+          //   dy[0] = 0; // 최초의 값을 0으로 세팅
+          //   for(let i = 0; i < arr.length; i++) {
+          //     for (let j=coin[i]; j<=m; j++) { // coin 종류를 순회: 1, 2, 5원을 각각 활용해 15원을 거슬러주는 경우의 수를 계산
+          //       dy[j] = Math.min(dy[j], dy[j-coin[i]]+1); // 기존 금액 vs i번째 코인의 금액을 적용한 결과를 비교, 작은 값을 dy 배열에 업데이트
+          //     }
+          //   }
+          //   answer = dy[m]; // 15원의 계산 결과를 answer로 업데이트 하고 리턴
+          //   return answer;
+          // }
+
+          //   let arr=[1, 2, 5]; 
+          //   console.log(solution(15, arr));      
+
+          // 5. 최대 점수 구하기
+          // 중복되는 케이스를 줄여야함
+          function solution(m, arr){  
+            let answer=0;
+            let dy = Array.from({length: m+1}, ()=>0);
+            for (let i = 0; i < arr.length; i++) {
+              let ps = arr[i][0]; // 획득하는 점수
+              let pt = arr[i][1]; // 문제 푸는데 걸리는 시간
+              for (let j = m; j >= pt; j--) {
+                // 기존 최고 점수, 현재 케이스의 문제를 풀었을 때 얻을수 있는 점수를 비교하여 최대값을 다이나믹 테이블에 업데이트
+                dy[j] = Math.max(dy[j], dy[j-pt] + ps); 
               }
-              dy[i] = max + 1;
-              answer = Math.max(answer, dy[i]);
+              answer = dy[m];
             }
             return answer;
           }
-          let arr=[5, 3, 7, 8, 6, 2, 9, 4];
-          console.log(solution(arr));
+
+            let arr=[[10, 5], [25, 12], [15, 8], [6, 3], [7, 4]];
+            console.log(solution(20, arr));
         </script>
     </body>
 </html>
