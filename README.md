@@ -29,6 +29,7 @@
 > ### Backend ⚙️
 
 - [ ] [Node.js](https://github.com/JoannaKang/today-i-learned/tree/main/Node.js)
+- [ ] [Java](https://github.com/JoannaKang/java-tutorial)
 - [ ] Flask
 - [ ] SQL (PostgreSQL)
 - [ ] Web Security
