@@ -47,7 +47,7 @@ class Solution {
         int po1 = 0;
         int po2 = 0;
             
-        for (int i=0; i< nums1.length; i++) {
+        for (int i=0; i < nums1.length; i++) {
             if(po2 >= n || (nums1[po1] < nums2[po2] && po1 < m)) {
                 data.add(nums1[po1] );
                 po1++;
@@ -58,6 +58,18 @@ class Solution {
         }
         for (int i=0; i< nums1.length; i++) {
             nums1[i] = (int) data.get(i); 
+        }
+    }
+}
+
+class Solution {
+    public int fib(int n) {
+        if (n == 0 ){
+            return 0;
+        } else if (n==1) {
+            return 1;
+        } else {
+            return fib(n-1) + fib(n-2);
         }
     }
 }
