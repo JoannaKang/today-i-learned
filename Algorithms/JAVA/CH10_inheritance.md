@@ -72,7 +72,7 @@ Q2.
 
 Q3.
 
-O / O / O / X
+O / O / O / O
 
 X / O / X / O
 
