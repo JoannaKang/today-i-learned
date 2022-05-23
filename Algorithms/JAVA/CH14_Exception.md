@@ -170,10 +170,13 @@ class MyException extends Exception {
     }
   }
 ```
+
 - 모든 예외 클래스는 Throwable 클래스를 상속하며 getMessage(), printStackTrace()는 Throwable 클래스의 메서드임
 
 - 예외 클래스 사용자 예시
-  * 점수는 0에서 100까지만 유효, 이 외에는 예외 발생
+
+  - 점수는 0에서 100까지만 유효, 이 외에는 예외 발생
+
   ```
   class A {
     // 예외를 던지는 메서드: checkScore
@@ -196,10 +199,86 @@ class MyException extends Exception {
     try {
       //checkScore 내에서 예외처리 요청을 전가함
       a.checkScore(85); // 정상적인 값입니다
-      a.checkScore(150); // 예외 100점 초과 
+      a.checkScore(150); // 예외 100점 초과
     } catch(MinusException | OverException e) {
       // 전가받은 예외처리를 여기에서 처리
       System.out.println(e.getMessage());
     }
   }
   ```
+
+[ 연습문제 ]
+
+- Q1.
+
+  - C / F / G / E / D / B / A
+
+- Q2.
+
+  ```
+  try {
+    int a = 3;
+    System.out.pritnln(5/a);
+  } catch (ArithmeticException e) {
+    System.out.println("예외발생")
+  } finally {
+    System.out.println("출력내용 1")
+    System.out.println("출력내용 2")
+    System.out.println("출력내용 3")
+  }
+  ```
+
+- Q3.
+
+  ```
+  try {
+    int [] array = {1,2,3};
+    int index = 4;
+    System.out.println(array[index]);
+
+    A aa = new A();
+    B bb = new B();
+  } catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("배열값 읽기 실패");
+  } catch (ClassCastException e) {
+    System.out.println("클래스 다운캐스팅 실패");
+  } finally {
+    System.out.println("처리완료");
+  }
+  ```
+
+- Q4.
+
+  - ArrayIndexOutOfBoundsException 은 실행되지 않는 오류
+  - 위의 catch 블록과 순서를 바꿔줘야 함
+
+- Q5.
+  ```
+  class A implements AutoCloseable {
+    String res = "리소스 할당"
+    @Override
+    public void close() throws Exception {
+      res = null;
+      System.out.println("리소스 자동 해제");
+    }
+  }
+  ```
+- Q6
+  ```
+  class A {
+    void abc() {
+      try {
+        bcd();
+      } catch (InterruptedException | ClassNotException e) {
+        e.printStackTrace();
+      }
+    }
+    void bcd() throws InterruptedException , ClassNotException {
+      Thread.sleep(1000);
+      Class.forName("java.lang.Object");
+    }
+  }
+  ```
+- Q7.
+  - 장학금 대상자 입니다
+  - 학점 미달입니다
