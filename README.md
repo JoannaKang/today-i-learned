@@ -4,7 +4,7 @@
 
 ---
 
-## 💡 2021's Resolution
+## 💡 2022's Resolution
 
 ```
 - Expanding backend knowledge
