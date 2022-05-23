@@ -30,12 +30,12 @@
 
 - [ ] [Node.js](https://github.com/JoannaKang/today-i-learned/tree/main/Node.js)
 - [ ] [Java](https://github.com/JoannaKang/java-tutorial)
-- [ ] Flask
+- [ ] Spring Boot
 - [ ] SQL (PostgreSQL)
 - [ ] Web Security
 - [ ] Authentification (JWT,Oauth)
 - [ ] Cloud systems
-- [ ] Log management (Kafka, Spring Boot)
+- [ ] Log management (Kafka)
 
 > ### CS Fundametals 🤖
 
