@@ -138,3 +138,68 @@
 
 - 상위 메서드들이 예외를 처리하지 않고 계속 전가만 하다보면 결국 JVM이 예외를 처리하게 됨
   -> JVM은 예외의 원인을 출력하고 그냥 프로그램을 종료시켜버림
+
+3. 예외 클래스 사용자 정의
+
+- 예외 클래스 작성방법
+- Exception 상속 : 일반예외(Checked Exception)로 생성
+
+```
+class MyException extends Exception {
+  MyException () {
+    // 문자열이 없는 예외 처리
+  }
+
+  MyException (String s) {
+    // s : 생성자에 문자열을 전달하여 예외 메시지를 만든다
+    super(s) // 부모 생성자 호출
+  }
+}
+```
+
+- RuntimeException : 실행예외 (Unchecked Exception)로 생성
+
+```
+  class MyRTException extends RunTimeException {
+    MyRTException() {
+      // 문자열이 없는 예외 처리
+    }
+    MyRTException(String s) {
+      // s : 생성자에 문자열을 전달하여 예외 메시지를 만든다
+      super(s) // 부모 생성자 호출
+    }
+  }
+```
+- 모든 예외 클래스는 Throwable 클래스를 상속하며 getMessage(), printStackTrace()는 Throwable 클래스의 메서드임
+
+- 예외 클래스 사용자 예시
+  * 점수는 0에서 100까지만 유효, 이 외에는 예외 발생
+  ```
+  class A {
+    // 예외를 던지는 메서드: checkScore
+    // throws 키워드를 사용했으므로 다른 클래스에 예외를 전가함
+    void checkScore(int score) throws MinusException, OverException {
+      if(score<0) {
+        throw new MinusException("예외: 음수값 입력");
+      }
+      else if(score > 100) {
+        throw new OverException("예외: 100점 초과");
+      }
+      else {
+        System.out.println("정상적인 값입니다");
+      }
+    }
+  }
+
+  public static void main(String[] args) {
+    A a = new A();
+    try {
+      //checkScore 내에서 예외처리 요청을 전가함
+      a.checkScore(85); // 정상적인 값입니다
+      a.checkScore(150); // 예외 100점 초과 
+    } catch(MinusException | OverException e) {
+      // 전가받은 예외처리를 여기에서 처리
+      System.out.println(e.getMessage());
+    }
+  }
+  ```
