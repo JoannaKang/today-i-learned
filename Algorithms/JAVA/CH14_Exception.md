@@ -164,7 +164,7 @@ class MyException extends Exception {
     MyRTException() {
       // 문자열이 없는 예외 처리
     }
-    MyRTException(String s) {
+    MyRTException(String s) {|||||
       // s : 생성자에 문자열을 전달하여 예외 메시지를 만든다
       super(s) // 부모 생성자 호출
     }
