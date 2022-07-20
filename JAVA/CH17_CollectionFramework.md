@@ -90,3 +90,90 @@
      - 아이템을 삭제하고 추가할 때 앞 뒤의 링크된 아이템의 정보만 바꾸면 됨, 따라서 정보의 추가, 삭제가 빠른 자료 구조
      - 반면에 데이터를 검색할때는 모든 연결된 정보를 탐색한 후 필요한 정보를 찾을 수 있으므로 ArraList보다는 검색 속도가 느림
    - 메서드 : 실제 내부적으로 동작하는 방식이 다를 뿐 ArrayList 와 동일
+
+<hr>
+
+## Set< E > 컬렉션
+
+- 집합의 개념으로 인덱스 정보를 포함하지 않음
+- 중복 저장 불가, 인덱스 정보가 없기 때문에 중복된 원소 중 특정 위치 값을 꺼낼 방법이 없음
+- 중복 저장 가능, 불가능을 판단하는 기준 : 중복된 특정 원소 중 하나를 특정하여 꺼낼 수 있는지 여부
+  ![Screen Shot 2022-07-20 at 10 20 24 PM](https://user-images.githubusercontent.com/34419390/180084408-b99c2537-052d-409e-9ccd-fa2a9c62597d.png)
+
+1. HashSet< E >
+
+- Set< E > 인터페이스를 구현한 클래스
+- 수집한 원소를 집합 형태로 관리하며 저장용량을 동적으로 관리
+- 입력 순서와 출력 순서는 동일하지 않을 수 있음
+- 메서드
+  - 데이터 정보 추출
+    - iterator : Set< E > 객체 내의 데이터를 연속해 꺼내는 메서드
+    ```
+    Iterator<String> iterator = hSet3.iterator();
+    while(iterator.hasNext()) {
+      System.out.print(iterator.next())
+    }
+    // or
+    for(String s : hSet3) {
+      System.out.print(s);
+    }
+    ```
+- 중복 확인 원리 : 해쉬코드는 객체를 기반으로 생성된 고유 값, Object의 equal()은==와 동일한 연산(저장 번지 자체를 비교한다)
+
+2. LinkedHashSet< E >
+
+- Set< E > 인터페이스를 구현한 클래스 (HashSet의 모든 기능 사용 가능)
+- 입력 순서와 출력 순서는 동일, 단 중복 원소의 경우 추가되지 않음
+
+3. TreeSet< E >
+
+- Set< E > 인터페이스를 구현한 클래스
+- 입력 순서와 관계 없이 크기순으로 오름차순 출력, 저장 원소는 대소 비교가 가능해야 함
+- Set< E > 에서 사용하지 못하는 추가적인 정렬 기능을 사용하기 위해서는 TreeSet을 사용해야 함
+- 메서드
+  ![Screen Shot 2022-07-20 at 10 40 06 PM](https://user-images.githubusercontent.com/34419390/180087090-97b9addf-fc3a-4574-9ada-36d4822126ee.png)
+  ![Screen Shot 2022-07-20 at 10 42 01 PM](https://user-images.githubusercontent.com/34419390/180087286-f4466c50-cba1-4425-bf21-f925723797bd.png)
+- TreeSet에서 크기 비교
+
+  - Integer 크기 비교 : 숫자 크기 비교
+  - String 크기 비교 : 문자열 정렬 순서대로
+  - Class 크기 비교 : 어떤 것을 기준으로 비교할건지 기준을 제시해줘야함
+
+    - 방법1 : Comparable< T > interface 구현
+
+    ```
+    class MyComparableClass implements Comparable<MyCOmparableClass> {
+      int data1;
+      int data2;
+
+      public MyComparableClass(int data1, int data2) {
+        this.data1 = data1;
+        this.data2 = data2;
+
+      @Override // 비교 기준을 오버라이딩
+      public int compareTo(MyComparableClass m) {
+        if(data1 < m.data1) { return -1 }
+        else if (data1 == m.data1) { return 0 }
+        else return 1;
+      }
+
+      }
+    }
+    ```
+
+    - 방법2 : TreeSet 생성자 매개변수로 Comparator< T > 객체제공
+
+    ```
+    TreeSet<MyClass> treeSet5 = new TreeSet<MyClass>(new Comparator<myClass>(){
+      @Override
+      public int compare(MyClass o1, Myclass o2) {
+        if(o1 < o2.data1) { return -1 }
+        else if (o1 ==o2.data1) { return 0 }
+        else return 1;
+      }
+    })
+
+    MyClass myClass1 = new MyClass(2, 5);
+    MyClass myClass 2 = new MyClass(3, 3);
+    // myClass1 < myClass2
+    ```
