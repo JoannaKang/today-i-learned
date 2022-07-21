@@ -177,3 +177,70 @@
     MyClass myClass 2 = new MyClass(3, 3);
     // myClass1 < myClass2
     ```
+
+<hr>
+
+## Map< K, V > 컬렉션
+
+- Key, Value 한 쌍의 데이터를 저장
+- Key는 중복 저장 불가, Value는 중복 저장 가능
+- 사용 가능 메서드
+  ![Screen Shot 2022-07-21 at 9 40 29 PM](https://user-images.githubusercontent.com/34419390/180311384-d100ffc5-f638-45e5-a811-d5ab1031fef6.png)
+  ![Screen Shot 2022-07-21 at 9 41 02 PM](https://user-images.githubusercontent.com/34419390/180311407-9c997ef0-6883-4aeb-bfa7-ae8cec88c3d4.png)
+
+1. HashMap< K,V >
+
+- Map< K, V > 인터페이스를 구현한 대표적인 구현 클래스
+- Key, Value 쌍으로 데이터를 관리하며 저장공간을 동적으로 관리
+- 입력, 출력의 순서는 동일하지 않을 수 있음, Key 값이 Set으로 관리됨
+- 중복확인 메커니즘
+  - 해쉬코드는 객체가 저장된 번지와 연관된 값
+  - Object 의 equal()은 == 와 동일한 연산(저장 번지 비교)
+
+2. HashTable< K,V >
+
+- HashMap이 단일쓰레드에 적합한 반면 HashTable은 쓰레드 안정성을 가짐
+- 모든 메서드가 동기화 메서드로 구현되어 멀티쓰레드에 적합함
+
+3. LinkedHashMap< K,V >
+
+- HashMap과 동일한 기능을 수행하지만 입력순서 = 출력순서
+- key가 linkedHashSet 형태로 관리되기 때문
+
+4. TreeMap
+
+- 엔트리 집합의 형태로 관리하며 저장공간을 동적 관리
+- 입력 순서와 관계 없이 key 값의 크기 순으로 출력(Key값은 대소비교가 가능해야 함)
+- 관련 메서드
+  ![Screen Shot 2022-07-21 at 10 10 10 PM](https://user-images.githubusercontent.com/34419390/180315987-b4776d7c-4ae3-4002-b661-d53b3c6d0cf1.png)
+  ![Screen Shot 2022-07-21 at 10 10 42 PM](https://user-images.githubusercontent.com/34419390/180315976-98462dcc-dda9-4e93-9fab-62805f003c9e.png)
+  ![Screen Shot 2022-07-21 at 10 11 15 PM](https://user-images.githubusercontent.com/34419390/180315972-dfcbd5b9-144e-4780-beb2-05980913a4b8.png)
+
+<hr>
+
+## Stack< E >
+
+- Vector< E >의 자식 클래스, 즉 List< E >의 특징을 상속받음
+- LIFO(Last In First Out)의 구조
+- 관련 메서드 : Vector의 기본 기능과 LIFO 특징을 구현하기 위한 메서드가 포함됨
+  - push(): 데이터를 아래서 밀어넣음
+  - peek() : 다음 꺼내질 데이터를 확인
+  - pop() : 맨 위의 데이터를 빼냄
+  - search() : 데이터 위치 검색, Stack 원소의 위치값을 리턴, 최상위 위치 1을 기준으로 아래로 내려갈 수록 1씩 증가
+  - empty() : 스택이 비워져있으면 true 아니면 False
+
+<hr>
+
+## Queue< E >
+
+- Stack과 달리 별도의 interface로 구성
+- 먼저 들어간 데이터가 먼저 나오는 FIFO(First In First Out) 구조
+- 관련 메서드
+  - 예외 처리 기능 미포함
+  - add() : 매개변수 아이템을 추가
+  - element() : 가장 상위에 있는 원소 값 리턴 (꺼낼 데이터 없는 경우 NoSuchElementException 발생)
+  - remove() : 가장 상위에 있는 원소 값 꺼내기 (꺼낼 데이터 없는 경우 NoSuchElementException 발생)
+  - 예외 처리 기능 포함
+    - offer() : 매개변수의 item을 Queue에 추가
+    - peek() : 가장 상위에 있는 원소 값 리턴 (데이터 하나도 없는 경우 null 리턴)
+    - poll() : 가장 상위에 있는 원소값 꺼내기 (꺼낼 데이터 없는 경우 null 리턴)
