@@ -244,3 +244,227 @@
     - offer() : 매개변수의 item을 Queue에 추가
     - peek() : 가장 상위에 있는 원소 값 리턴 (데이터 하나도 없는 경우 null 리턴)
     - poll() : 가장 상위에 있는 원소값 꺼내기 (꺼낼 데이터 없는 경우 null 리턴)
+
+<hr>
+
+Q1
+
+```
+public class Q1 {
+    public static void main(String[] args) {
+        List<Integer> list1 = new ArrayList<Integer>();
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
+        System.out.println(list1);
+        List<Integer> list2 = Arrays.asList(1,2);
+        // asList를 사용해 List 객체를 만들 때 원본 배열의 주소값을 가져오므로 새로운 원소를 추가하거나 삭제할 수 없음
+        // list2.add(3);
+        System.out.println(list2);
+    }
+}
+```
+
+Q2.
+
+```
+public class Q2 {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>();
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        System.out.println(list);
+        list.remove(2);
+        System.out.println(list);
+    }
+}
+```
+
+- 실행결과
+  [2, 3, 4]
+  [2, 3]
+
+Q3.
+
+```
+public class Q3 {
+    public static void main(String[] args) {
+        List<Boolean> list = new Vector<>();
+        list.add(true);
+        list.add(false);
+        list.add(true);
+        Boolean[] bArray = list.toArray(list.toArray(new Boolean[5]));
+        System.out.println(Arrays.toString(bArray));
+    }
+}
+```
+
+- 실행결과
+
+  [true, false, true, null, null]
+
+Q4. LinkedList : 새 데이터를 입력할 때 입력하려는 위치 앞 뒤의 연결 정보만 업데이트해주면 되므로 새 요소 입력, 삭제에 용이한 데이터 구조
+
+```
+public class Q4 {
+    public static void main(String[] args) {
+        List<String> list = new LinkedList<String>();
+        for (int i = 0; i < 100000; i++) {
+            list.add(0, i + "데이터");
+        }
+        System.out.println("완료");
+    }
+}
+```
+
+Q5.
+
+```
+public class Q5 {
+    public static void main(String[] args) {
+        Data data1 = new Data(3);
+        Data data2 = new Data(3);
+        // 두 인스턴스의 해시코드 값을 비교하므로 false
+        System.out.println(data1 == data2);
+        // 두 인스턴스의 필드 값을 비교하므로 true
+        System.out.println(data1.equals(data2));
+        // 두 인스턴스의 해시코드 값을 비교하므로 false
+        System.out.println(data1.hashCode() == data2.hashCode());
+    }
+}
+```
+
+Q6.
+
+```
+class Data {
+    int m ;
+    public Data(int m) {
+        this.m = m;
+    }
+    @Override
+    public boolean equals (Object obj) {
+        if(obj instanceof Data) return this.m ==((Data)obj).m;
+        else return false;
+    }
+
+    @Override
+    public int hashCode() {
+      // 필드 값을 기준으로 해시 코드 생성
+        return Objects.hash(m);
+    }
+}
+
+public class Q6 {
+    public static void main(String[] args) {
+        Set<Data> set = new HashSet<>();
+        set.add(new Data(2));
+        set.add(new Data(2));
+        // set은 중복을 허용하지 않으므로 2를 두번 추가하지 않음
+        set.add(new Data(3));
+        System.out.println(set.size());
+    }
+}
+```
+
+Q7
+
+```
+class MyData2 implements Comparable<MyData2> {
+    String str;
+    public MyData2(String str) {
+        this.str = str;
+    }
+
+    @Override
+    public int compareTo(MyData2 o) {
+        if (this.str.length() < o.str.length()) {
+            return -1;
+        } else if (this.str.length() == o.str.length()) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+
+    @Override
+    public String toString() {
+        return str;
+    }
+}
+
+public class Q7 {
+    public static void main(String[] args) {
+        MyData2 md1 = new MyData2("자바 프로그램");
+        MyData2 md2 = new MyData2("반가워");
+        MyData2 md3 = new MyData2("감사합니다");
+        TreeSet<MyData2> treeSet = new TreeSet<>();
+        treeSet.add(md1);
+        treeSet.add(md2);
+        treeSet.add(md3);
+        System.out.println(treeSet);
+    }
+}
+```
+
+Q8.
+
+```
+public class Q8 {
+    public static void main(String[] args) {
+        Map<String, Boolean> map = new HashMap<>();
+        map.put("사운드", true);
+        map.put("그래픽", false);
+        map.put("배경음", true);
+        map.put("그래픽", true);
+
+        System.out.println(map);
+    }
+}
+```
+
+Q9.
+
+```
+public class Q9 {
+    public static void main(String[] args) {
+        Stack<Double> stack = new Stack<Double>();
+        stack.push(1.1);
+        stack.push(2.2);
+        stack.pop();
+        stack.push(3.3);
+        stack.push(4.4);
+
+        System.out.println(stack.search(1.1));
+        System.out.println(stack.search(2.2));
+        System.out.println(stack.search(3.3));
+        System.out.println(stack.search(4.4));
+    }
+}
+```
+
+- 실행결과 : 3, -1, 2, 1
+
+Q10.
+
+```
+public class Q10 {
+
+    public static void main(String[] args) {
+        Queue<String> queue = new LinkedList<>();
+        queue.offer("땡큐");
+        queue.offer("베리");
+        queue.offer("감사");
+        queue.poll();
+        queue.offer("방가");
+        System.out.println(queue.peek());
+        System.out.println(queue.poll());
+        System.out.println(queue.poll());
+        System.out.println(queue.poll());
+    }
+}
+```
+
+- 실행결과 : 베리 베리 감사 방가
