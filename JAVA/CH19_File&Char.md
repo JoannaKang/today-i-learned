@@ -56,3 +56,22 @@
   ![Screen Shot 2022-08-03 at 10 13 41 PM](https://user-images.githubusercontent.com/34419390/182713044-d7050c0b-4908-4f1e-8048-bf176902365c.png)
   * (File)OutputStream 메서드의 활용
     * void write(int b, void flush(), void close()): 파일에 문자열 쓰기
+
+### 콘솔 입, 출력
+* System.in : 콘솔의 입력을 처리하는 InputStream 객체, 한 줄 단위로만 입력 처리 
+   * ASCII 코드값을 확인하여 역슬래시 문자열이 입력되는 경우를 엔터입력시점이라고 간주
+* System.out : 콘솔의 출력을 처리하는 OutputStream 객체, Close()로 자원을 해제하면 이후 콘솔 출력 불가
+   * write()메서드는 버퍼에 쓰기를 수행,
+   * flush()메서드는 버퍼의 내용을 콘솔로 출력
+     * write() 다음에는 Flush() 를 쓰는 버릇을 들여야 함??
+
+## Byte 단위 입출력
+* FilterStream의 개념 : 입출력 스트림의 형태 특징의 변경
+  1) 입출력 과정에서 메모리 버퍼를 사용함으로서 속도향상 : BufferedInputStream / BufferedOutstream
+  2) 다양한 데이터 타입 입출력 : DataInputStream / DataOutpuStream
+  ![Screen Shot 2022-08-06 at 12 23 03 AM](https://user-images.githubusercontent.com/34419390/183222990-c77e4643-8fe3-4824-a7a2-9f0acbed984b.png)
+  * 다른 종류의 필터 조합해서 사용 가능
+    * e.g) BufferedXXXStream + DataXXXStream : 향상된 속도로 다양한 타입의 입출력 수행
+  3) 다양한 데이터 출력에 특화 : PrintStream
+  * 자동 flush() 기능 제공, System.out의 객체 타입
+  ![Screen Shot 2022-08-06 at 12 29 31 AM](https://user-images.githubusercontent.com/34419390/183223367-7250885a-847f-424b-9417-48f38ba546a6.png)
