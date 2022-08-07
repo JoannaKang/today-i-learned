@@ -65,7 +65,7 @@
    * flush()메서드는 버퍼의 내용을 콘솔로 출력
      * write() 다음에는 Flush() 를 쓰는 버릇을 들여야 함??
 
-## Byte 단위 입출력
+### Byte 단위 입출력
 * FilterStream의 개념 : 입출력 스트림의 형태 특징의 변경
   1) 입출력 과정에서 메모리 버퍼를 사용함으로서 속도향상 : BufferedInputStream / BufferedOutstream
   2) 다양한 데이터 타입 입출력 : DataInputStream / DataOutpuStream
@@ -75,3 +75,29 @@
   3) 다양한 데이터 출력에 특화 : PrintStream
   * 자동 flush() 기능 제공, System.out의 객체 타입
   ![Screen Shot 2022-08-06 at 12 29 31 AM](https://user-images.githubusercontent.com/34419390/183223367-7250885a-847f-424b-9417-48f38ba546a6.png)
+
+  ### Char 단위의 입출력
+  * Reader: char 단위 입력을 수행하는 추상클래스
+    * 사용 가능 메서드
+    ![Screen Shot 2022-08-07 at 5 24 45 PM](https://user-images.githubusercontent.com/34419390/183300921-cac47cc0-c409-42ef-aa8b-72501a8a80ce.png)
+    * 하위 클래스
+      * FileReader : 문자 단위로 파일을 읽어옴
+
+      * BufferedReader
+
+      * InputStreamReader
+  * Writer: char 단위 출력을 수행하는 추상클래스
+    ![Screen Shot 2022-08-07 at 5 26 15 PM](https://user-images.githubusercontent.com/34419390/183300952-a072a912-0cef-4a44-af56-c0c839097a64.png)
+    * FileWriter : 해당 경로에 문자 단위로 새 데이터를 입력
+    * BufferedWriter
+    * OutputStreamWriter
+    * PrintWriter
+
+  * FileReader / FileWriter 예시 
+  ![Screen Shot 2022-08-07 at 5 29 28 PM](https://user-images.githubusercontent.com/34419390/183301116-49ef1111-20dd-4329-a747-aae1d91d861f.png)
+
+  * BufferedReader / BufferedWriter 예시
+  ![Screen Shot 2022-08-07 at 5 32 54 PM](https://user-images.githubusercontent.com/34419390/183301294-0067f9f5-90c7-47b9-bfd5-3fd5079d7960.png)
+
+  * InputStreamReaer / OutputStreamWriter 예시
+  ![Screen Shot 2022-08-07 at 5 35 59 PM](https://user-images.githubusercontent.com/34419390/183301481-5a70510c-1e1e-4244-b057-1948771b8b7c.png)
