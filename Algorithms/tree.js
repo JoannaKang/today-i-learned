@@ -1,14 +1,13 @@
 const fs = require("fs");
 
-let lineOfCodes = 0;
-
 function readFile(fileName) {
   const file = fs
     .readFileSync(fileName)
     .toString()
     .split("\n")
     .filter((text) => text !== "");
-  lineOfCodes += file.length;
+
+  return file.length;
 }
 
 const folder = "/Users/joannakang/Projects";
@@ -29,24 +28,45 @@ function checkFileType(fileEntry) {
   return "notCode";
 }
 
-function traverseFileTree(folder) {
+// Depth First Search
+function DFSTree(folder) {
   //console.log(folder);
+  let lineOfCode = 0;
   const files = fs.readdirSync(folder, { withFileTypes: true });
 
-  if (files.length > 0) {
-    files.forEach((file) => {
-      const fileType = checkFileType(file);
-      if (fileType === "dir") {
-        const newDir = folder + "/" + file.name;
-        //console.log("directory: ", newDir);
-        return traverseFileTree(newDir, file.name);
-      } else if (fileType === "code") {
-        //console.log("code: ", file);
-        return readFile(folder + "/" + file.name);
-      }
-    });
-  }
+  files.forEach((file) => {
+    const fileType = checkFileType(file);
+    if (fileType === "dir") {
+      const newDir = folder + "/" + file.name;
+      lineOfCode += DFSTree(newDir);
+    } else if (fileType === "code") {
+      lineOfCode += readFile(folder + "/" + file.name);
+    }
+  });
+  return lineOfCode;
 }
 
-traverseFileTree(folder);
-console.log(lineOfCodes);
+console.log(DFSTree(folder));
+
+// Breadth First Search
+function BFSTree(folder) {
+  let lineOfCode = 0;
+  const files = fs.readdirSync(folder, { withFileTypes: true });
+
+  files.forEach((file) => {
+    const fileType = checkFileType(file);
+    if (fileType === "code") {
+      lineOfCode += readFile(folder + "/" + file.name);
+    }
+  });
+
+  files.forEach((file) => {
+    const fileType = checkFileType(file);
+    if (fileType === "dir") {
+      lineOfCode += BFSTree(folder + "/" + file.name);
+    }
+  });
+  return lineOfCode;
+}
+
+console.log(BFSTree(folder));
